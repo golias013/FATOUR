@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var imagens = ["/Tcc/fatour/images/busao.svg", "/Tcc/fatour/images/viagemimg.svg"]; // Lista de imagens SVG
+    var imagens = ["/fatour/images/busao.svg", "/fatour/images/viagemimg.svg"]; // Lista de imagens SVG
     var intervalo = 5000; // Intervalo de tempo em milissegundos (3 segundos)
   
     var index = 0; // Índice atual da imagem
