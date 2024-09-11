@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Tcc/fatour/css/styleLogin.css">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Faça login <br>E venha viajar conosco</h1>
+            <!-- <img id="imagem" src="busao.svg" class="left-login-img" alt="Onibus Animação">-->
+            <object type="image/svg+xml" id="imagem" data="/Tcc/fatour/images/busao.svg"></object>
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1>LOGIN</h1>
+                <div class="textfield">
+                    <label for="usuario">Email</label>
+                    <input id="email" type="text" name="usuario" placeholder="Email">
+                </div>
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input id="senha" type="password" name="senha" placeholder="Senha">
+                </div>
+                <button class="btn-login" id="btn-login">Login</button>
+                <span>
+                    Não tem uma conta?
+                    <a href="/Tcc/fatour/cadastro.html" class="text-primary">
+                      Cadastre-se
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script src="/Tcc/fatour/js/scriptLogin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- SCRIPT LOGIN -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            //Configuração para apresentar erros na tela para o usuario.
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: toast => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            });
+
+            const btnLogin = document.getElementById('btn-login');
+            btnLogin.addEventListener('click', function () {
+                const email = document.getElementById('email').value;
+                const senha = document.getElementById('senha').value;
+
+                let emailIsValid = validateEmail(email);
+
+                if (emailIsValid) {
+                    login(email, senha);
+                } else {
+                    Toast.fire({
+                        icon: "error",
+                        title: "O email digitado não é válido!"
+                    });
+                }
+            });
+
+            function validateEmail(email) {
+                const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                let emailIsValid;
+
+                if (regex.test(email)) {
+                    emailIsValid = true;
+                    return emailIsValid;
+                } else {
+                    emailIsValid = false;
+                    return emailIsValid;
+                }
+            }
+
+            async function login(email, senha) {
+                try {                    
+                    
+                    window.location.href = "/Tcc/fatour/home/dashboard.html"
+                    
+                    /*await fetch("localhost:8080/login", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            senha: senha
+                        })
+                    }).then(response => response.json())
+                      .then(data => {
+                        console.log(data);
+                    }).catch(error => {
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'Error signing in.'
+                        });
+                    })*/
+
+                } catch (e) {
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error signing in.'
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
