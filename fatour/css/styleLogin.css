@@ -88,11 +88,27 @@ body * {
 
 }
 
+.forgotpassword {
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.forgotpassword a {
+    color: #F04E39;
+    text-decoration: none;
+}
+
+.spanNoAccount a {
+    color: #F04E39;
+    text-decoration: none;
+}
+
 .btn-login { 
 
     width: 100%;
     padding: 16px 0px;
-    margin: 25px ;
+    margin-top: 20px;
+    margin-bottom: 20px;
     border: none;
     border-radius: 8px;
     outline: none;

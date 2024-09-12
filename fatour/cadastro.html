@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/fatour/css/styleCadastro.css">
-    <title>Cadastro</title>
+    <title>Fatour</title>
 </head>
 
 <body>
@@ -38,16 +38,20 @@
                 </div>
                 <div id="senha-error" style="color: red; font-size: 14px; display: none;"></div>
                 <button class="btn-cadastro" id="btn-cadastro">Cadastro</button>
-                <span>
-                    Já tem uma conta?
-                    <a href="/fatour/login.html" class="text-primary">
-                        Login
-                    </a>
-                </span>
+                <div class="forgotpassword">
+                    <span>
+                        Já tem uma conta?
+                        <strong>
+                            <a href="/fatour/login.html" class="text-primary">
+                                Login
+                            </a>
+                        </strong>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
-    <script src="/fatour/js/scriptCadastro.js"></script>
+    <script src="/fatour/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- SCRIPT CADASTRO -->
@@ -69,7 +73,7 @@
             const btnCadastro = document.getElementById('btn-cadastro');
             const senha = document.getElementById('senha');
             const confirmarSenha = document.getElementById('confirmarSenha');
-            const senhaError = document.getElementById('senha-error'); 
+            const senhaError = document.getElementById('senha-error');
 
             confirmarSenha.addEventListener('input', function () {
                 const password = senha.value;
@@ -123,7 +127,7 @@
             async function register(name, email, password, confirmPassword) {
                 try {
                     window.location.href = "/fatour/home/dashboard.html"
-                    
+
                     /*await fetch("localhost:8080/cadastro", {
                         method: 'POST',
                         headers: {
@@ -144,7 +148,7 @@
                                 title: 'Erro ao realizar seu cadastro.'
                             });
                         })*/
-                
+
                 } catch (e) {
                     Toast.fire({
                         icon: 'error',

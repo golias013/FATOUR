@@ -5,50 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/fatour/css/styleLogin.css">
+    <link rel="stylesheet" href="/fatour/css/styleResetSenha.css">
     <title>Fatour</title>
 </head>
 
 <body>
 
-    <div class="main-login">
-        <div class="left-login">
-            <h1>Faça login <br>E venha viajar conosco</h1>
-            <!-- <img id="imagem" src="busao.svg" class="left-login-img" alt="Onibus Animação">-->
+    <div class="main-reset-password">
+        <div class="left-reset-password">
+            <h1>Resolva sua senha<br> E venha viajar conosco</h1>
             <object type="image/svg+xml" id="imagem" data="/fatour/images/busao.svg"></object>
         </div>
-        <div class="right-login">
-            <div class="card-login">
-                <h1>LOGIN</h1>
+        <div class="right-reset-password">
+            <div class="card-reset-password">
+                <h1>RESETAR SENHA</h1>
+                <div class="resetpassword">
+                    <p>Insira seu endereço de e-mail e nós enviaremos instruções para redefinir sua senha.</p>
+                </div>
                 <div class="textfield">
                     <label for="usuario">Email</label>
-                    <input id="email" type="text" name="usuario" placeholder="Email">
+                    <input id="email" type="text" name="usuario" placeholder="Entre com o seu mail">
                 </div>
-                <div class="textfield">
-                    <label for="senha">Senha</label>
-                    <input id="senha" type="password" name="senha" placeholder="Senha">
-                </div>
-                <div class="forgotpassword">
-                    <span>
-                        <strong>
-                            <a href="/fatour/resetar-senha.html" class="text-primary">
-                                Esqueceu a senha?
-                            </a>
-                        </strong>
-                    </span>
-                </div>
-                <button class="btn-login" id="btn-login">Login</button>
-                <span class="spanNoAccount">
-                    Não tem uma conta?
-                    <strong><a href="/fatour/cadastro.html" class="text-primary">Cadastre-se</a></strong>
-                </span>
+                <button class="btn-reset-password" id="btn-reset-password">Enviar email</button>
+                <hr style="width: 100%">
+                <a href="/fatour/login.html" style="text-decoration: none; color: #D9D9D9; width: 100%;"><button class="btn-reset-password" id="btn-reset-password">Voltar</button></a>
             </div>
         </div>
     </div>
     <script src="/fatour/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- SCRIPT LOGIN -->
+    <!-- SCRIPT FORGOT PASSWORD -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
@@ -65,15 +52,14 @@
                 }
             });
 
-            const btnLogin = document.getElementById('btn-login');
-            btnLogin.addEventListener('click', function () {
+            const btnResetarSenha = document.getElementById('btn-reset-password');
+            btnResetarSenha.addEventListener('click', function () {
                 const email = document.getElementById('email').value;
-                const senha = document.getElementById('senha').value;
 
                 let emailIsValid = validateEmail(email);
 
                 if (emailIsValid) {
-                    login(email, senha);
+                    resetPassword(email);
                 } else {
                     Toast.fire({
                         icon: "error",
@@ -95,19 +81,18 @@
                 }
             }
 
-            async function login(email, senha) {
+            async function resetPassword(email) {
                 try {                    
                     
-                    window.location.href = "/fatour/home/dashboard.html"
+                    window.location.href = "/fatour/login.html"
                     
-                    /*await fetch("localhost:8080/login", {
+                    /*await fetch("localhost:8080/reset-passoword", {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            email: email,
-                            senha: senha
+                            email: email
                         })
                     }).then(response => response.json())
                       .then(data => {

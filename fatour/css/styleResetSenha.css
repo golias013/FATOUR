@@ -8,7 +8,7 @@ body * {
     box-sizing: border-box;
 }
 
-.main-cadastro {
+.main-reset-password {
     width: 100vw;
     height: 100vh;
     background: #fff;
@@ -18,7 +18,7 @@ body * {
 
 }
 
-.left-cadastro { 
+.left-reset-password { 
    width: 30vw ;
    height: 60vh;
    display: flex;   
@@ -28,14 +28,12 @@ body * {
 
 }
 
-
-
-.left-cadastro > h1 { 
+.left-reset-password > h1 { 
     font-size: 3vw ;
     color: #F04E39;
 }
 
-.right-cadastro {
+.right-reset-password {
     width: 50vw;
     height: 100vh;
     display: flex;
@@ -43,7 +41,7 @@ body * {
     align-items: center;
 }
 
-.card-cadastro { 
+.card-reset-password { 
     width: 60%;
     display: flex;
     justify-content: center;
@@ -56,7 +54,7 @@ body * {
 
 }
 
-.card-cadastro > h1 { 
+.card-reset-password > h1 { 
    color: #F04E39;
    font-weight: 800;
    margin: 0;
@@ -88,16 +86,33 @@ body * {
 
 }
 
+.forgotpassword {
+    margin-top: 10px;
+    justify-content: center;
+}
+
 .forgotpassword a {
     color: #F04E39;
     text-decoration: none;
 }
 
-.btn-cadastro { 
+.spanNoAccount a {
+    color: #F04E39;
+    text-decoration: none;
+}
+
+.resetpassword{
+    text-align: center; 
+    display: flex; 
+    justify-content: center;
+}
+
+.btn-reset-password { 
 
     width: 100%;
     padding: 16px 0px;
-    margin: 25px ;
+    margin-top: 20px;
+    margin-bottom: 20px;
     border: none;
     border-radius: 8px;
     outline: none;
@@ -111,32 +126,32 @@ body * {
 }
 
 @media only screen and (max-width: 950px){ 
-    .card-cadastro{
+    .card-reset-password{
         width: 85%;
     }
 }
 
 @media only screen and (max-width: 600px){ 
-    .main-cadastro{
+    .main-reset-password{
         flex-direction: column ;
     }
-    .left-cadastro > h1 {
+    .left-reset-password > h1 {
         display: none;
     }
 
-    .left-cadastro{ 
+    .left-reset-password{ 
         width: 100%;
         height: auto;
     }
-    .right-cadastro{ 
+    .right-reset-password{ 
         width: 100%;
         height: auto;
     }
 
-    .left-cadastro-img { 
+    .left-reset-password-img { 
         width: 50vh;
     }
-    .card-cadastro{ 
+    .card-reset-password{ 
         width: 90%;
 
     }
