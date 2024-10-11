@@ -97,37 +97,44 @@
             }
 
             async function login(email, senha) {
-                try {                    
-                    
-                    window.location.href = "/fatour/home/dashboard.html"
-                    
-                    /*await fetch("localhost:8080/login", {
+                try {
+                    const response = await fetch("http://127.0.0.1:8080/api/usuarios/login", {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            email: email,
-                            senha: senha
+                            useremail: email,
+                            password: senha,
                         })
-                    }).then(response => response.json())
-                      .then(data => {
-                        console.log(data);
-                    }).catch(error => {
-                        Toast.fire({
-                            icon: 'error',
-                            title: 'Error signing in.'
-                        });
-                    })*/
+                    });
 
-                } catch (e) {
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        Toast.fire({
+                            icon: "error",
+                            title: data.msg
+                        });
+                    } else {
+                        let userId = data.id;                        
+                        localStorage.setItem('userId', userId);
+                        
+                        Toast.fire({
+                            icon: "success",
+                            title: data.msg
+                        });
+                        window.location.href = "/fatour/home/dashboard.html";
+                    }
+                } catch (error) {
                     Toast.fire({
                         icon: 'error',
-                        title: 'Error signing in.'
+                        title: 'Erro ao realizar seu login.'
                     });
                 }
             }
         });
     </script>
 </body>
+
 </html>

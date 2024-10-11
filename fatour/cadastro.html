@@ -127,8 +127,8 @@
 
             async function register(name, email, password, confirmPassword) {
                 try {
-
-                    await fetch("http://127.0.0.1:8080/api/usuarios", {
+                    // Aguarda a resposta da requisição
+                    const response = await fetch("http://127.0.0.1:8080/api/usuarios", {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -139,15 +139,20 @@
                             password: password,
                             role: "ROLE_CLIENTE"
                         })
-                    }).then(response => response.json())
-                        .then(data => {
-                            window.location.href = "/fatour/home/dashboard.html";
-                        }).catch(error => {
-                            Toast.fire({
-                                icon: 'error',
-                                title: 'Erro ao realizar seu cadastro.'
-                            });
-                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.status !== 201) {
+                        Toast.fire({
+                            icon: "error",
+                            title: 'Erro ao realizar seu cadastro.'
+                        });
+                    } else {
+                        let userId = data.id;
+                        localStorage.setItem('userId', userId);
+                        window.location.href = "/fatour/home/dashboard.html";
+                    }
 
                 } catch (e) {
                     Toast.fire({
@@ -156,6 +161,7 @@
                     });
                 }
             }
+
         });
     </script>
 </body>
