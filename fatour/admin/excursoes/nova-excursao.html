@@ -119,8 +119,8 @@
             const local = document.getElementById('local').value;
             const descricao = document.getElementById('descricao').value;
             const imagem = document.getElementById('imagem').files[0];
-            const dataIda = document.getElementById('dataIda').value + " " + document.getElementById('horaIda').value;
-            const dataVolta = document.getElementById('dataVolta').value + " " + document.getElementById('horaVolta').value;
+            const dataIda = document.getElementById('dataIda').value + "T" + document.getElementById('horaIda').value + ":00";
+            const dataVolta = document.getElementById('dataVolta').value + "T" + document.getElementById('horaVolta').value + ":00";
             const quantidadeAssentos = document.getElementById('numeroParticipantes').value;
 
             let imagemBase64 = '';
@@ -167,12 +167,13 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        local: local,
-                        descricao: descricao,
-                        foto: foto,
-                        data_ida: dataIda,
-                        data_volta: dataVolta,
-                        quantidade_assentos: quantidadeAssentos
+                        location: local,
+                        description: descricao,
+                        image: foto,
+                        going: dataIda,
+                        back: dataVolta,
+                        numberOfSeats: quantidadeAssentos,
+                        quantitySold: 0
                     })
                 });
 
