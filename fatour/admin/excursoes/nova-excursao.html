@@ -161,7 +161,7 @@
 
         async function insertExcursao(local, descricao, foto, dataIda, dataVolta, quantidadeAssentos) {
             try {
-                const response = await fetch("http://127.0.0.1:8080/api", {
+                const response = await fetch("http://127.0.0.1:8080/api/excursions", {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
