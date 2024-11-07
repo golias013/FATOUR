@@ -32,7 +32,8 @@ html {
 }
 
 .exit:before,
-.exit:after {
+
+.exit:after {
     font-size: 14px;
     line-height: 18px;
     padding: 0px 2px;

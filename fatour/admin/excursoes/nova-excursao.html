@@ -79,6 +79,9 @@
                             <input type="time" id="horaVolta" name="horaVolta" required>
                         </div>
 
+                        <label for="preco">Preço:</label>
+                        <input type="number" id="preco" name="preco" min="0" required>
+
                         <label for="numeroParticipantes">Número de participantes (1 a 50):</label>
                         <input type="number" id="numeroParticipantes" name="numeroParticipantes" min="1" max="50"
                             required>
@@ -124,6 +127,7 @@
             const imagem = document.getElementById('imagem').files[0];
             const dataIda = document.getElementById('dataIda').value + "T" + document.getElementById('horaIda').value + ":00";
             const dataVolta = document.getElementById('dataVolta').value + "T" + document.getElementById('horaVolta').value + ":00";
+            const preco = document.getElementById('preco').value;
             const quantidadeAssentos = document.getElementById('numeroParticipantes').value;
 
             let imagemBase64 = '';
@@ -136,7 +140,7 @@
                 }
             }
 
-            insertExcursao(local, descricao, imagemBase64, dataIda, dataVolta, quantidadeAssentos);
+            insertExcursao(local, descricao, imagemBase64, dataIda, dataVolta, preco, quantidadeAssentos);
         });
 
         function convertImageToBase64(imagemFile) {
@@ -162,7 +166,7 @@
             }
         }
 
-        async function insertExcursao(local, descricao, foto, dataIda, dataVolta, quantidadeAssentos) {
+        async function insertExcursao(local, descricao, foto, dataIda, dataVolta, preco, quantidadeAssentos) {
             try {
                 const response = await fetch("http://127.0.0.1:8080/api/excursions", {
                     method: 'POST',
@@ -175,6 +179,7 @@
                         image: foto,
                         going: dataIda,
                         back: dataVolta,
+                        price: preco,
                         numberOfSeats: quantidadeAssentos,
                         quantitySold: 0
                     })

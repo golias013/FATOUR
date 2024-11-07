@@ -20,7 +20,7 @@
         <header style="background-color: rgba(255, 255, 255, 0.6);" class="fixed-top">
             <nav class="bg-danger border-bottom navbar navbar-expand-lg navbar-light pb-lg-0 pt-lg-0">
                 <div class="bg-danger container"> <a class="fs-2 fw-bold navbar-brand pe-4 text-light"
-                        href="home.html">FATOUR</a>
+                        href="/index.html">FATOUR</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDropdown-3" aria-controls="navbarNavDropdown-3" aria-expanded="false"
                         aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
@@ -65,10 +65,9 @@
                             <li class="nav-item">
                             </li>
                         </ul>
-                        <a class="fw-bold m-lg-auto nav-link  p-lg-4 text-white" href="home.html">Home</a><a
+                        <a class="fw-bold m-lg-auto nav-link  p-lg-4 text-white" href="/fatour/home/dashboard.html">Home</a><a
                             class="fw-bold m-lg-auto nav-link p-lg-4 text-white" href="#">Carteira</a><a
-                            class="fw-bold m-lg-auto nav-link p-lg-4 text-white" href="#">Minha Lista</a><a
-                            class="fw-bold ms-lg-auto nav-link p-lg-4 text-light" href="#">Suporte</a>
+                            class="fw-bold m-lg-auto nav-link p-lg-4 text-white" href="/fatour/home/pedidos/compras.html">Meus pedidos</a>
                         <ul class="align-items-lg-center ms-auto navbar-nav">
                             <li class="nav-item">
                                 <div class="fw-semibold nav-link px-lg-3 py-lg-4 text-white" id="logout"><svg
@@ -88,16 +87,16 @@
         </header>
         <main>
             <section class="background-cover bg-dark pb-5 position-relative pt-5 text-white"
-                style="background-image:url('https://images.unsplash.com/photo-1533130061792-64b345e4a833?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDkyMnwwfDF8c2VhcmNofDY2fHxtdXN0YW5nJTIwbmVwYWx8ZW58MHx8fA&ixlib=rb-1.2.1&q=80&w=1080');">
+                style="background-image: url('/fatour/images/Background_Dashboard.jpg');">
                 <div class="container mt-5  pb-5 pt-5">
                     <div class="pb-5 pt-5 row">
                         <div class="col-lg-7 col-xl-6 col-xxl-5 pb-5 pt-5">
                             <h1 class="display-3 fw-normal ">Encontre seu lugar</h1>
-                            <p class="lead mb-5">Ache o seu lugar ideal para fazer excurções</p>
+                            <p class="lead mb-5">Ache o seu lugar ideal para viajar pelo mundo</p>
                             <form>
                                 <div class="gx-2 row">
                                     <div class="col-sm mb-3">
-                                        <input type="text"
+                                        <input type="text" id="search-input"
                                             class="form-control form-control-lg pe-4 ps-4 rounded-pill text-center"
                                             placeholder="Para onde quer ir? ">
                                     </div>
@@ -129,45 +128,47 @@
                     <div class="container ">
                         <div class="bg-white p-3 rounded-3 shadow-sm">
                             <div class="g-0 justify-content-center row text-center">
-                                <h5 class="g-0">Filtrar por:</h5>
+                                <h5 class="g-0">Priorizamos a sua:</h5>
                                 <div class="col-4 col-lg-2">
-                                    <a class="bg-white d-block link-primary mt-auto pb-4 pe-3 ps-3 pt-4 text-decoration-none"
-                                        href="#"><svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em"
+                                    <a
+                                        class="bg-white d-block link-primary mt-auto pb-4 pe-3 ps-3 pt-4 text-decoration-none"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em"
                                             viewBox="0 0 24 24" fill="none" stroke="#dc3545" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" class="mb-3">
                                             <path d="M20 9v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9" />
                                             <path d="M9 22V12h6v10M2 10.6L12 2l10 8.6" />
                                         </svg>
-                                        <h2 class="fw-normal h6 mb-1 text-black-50">Cidade</h2>
+                                        <h2 class="fw-normal h6 mb-1 text-black-50">Família</h2>
                                         <h2 class="fw-normal h6 mb-1 text-black-50"></h2>
                                     </a>
                                 </div>
                                 <div class="col-4 col-lg-2">
-                                    <a class="bg-white d-block link-primary mt-auto pb-4 pe-3 ps-3 pt-4 text-decoration-none"
-                                        href="#"><svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em"
+                                    <a
+                                        class="bg-white d-block link-primary mt-auto pb-4 pe-3 ps-3 pt-4 text-decoration-none"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em"
                                             viewBox="0 0 24 24" fill="none" stroke="#dc3545" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" class="mb-3">
                                             <circle cx="12" cy="10" r="3" />
                                             <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
                                         </svg>
-                                        <h2 class="fw-normal h6 mb-1 text-black-50">Estado</h2>
+                                        <h2 class="fw-normal h6 mb-1 text-black-50">Localidade</h2>
                                     </a>
                                 </div>
                                 <div class="col-4 col-lg-2">
-                                    <a class="bg-white d-block link-primary  pb-4 pe-3 ps-3 pt-4 text-decoration-none"
-                                        href="#"><svg xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem"
+                                    <a class="bg-white d-block link-primary  pb-4 pe-3 ps-3 pt-4 text-decoration-none"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem"
                                             viewBox="0 0 24 24" fill="none" stroke="#dc3545" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" class="mb-3">
                                             <line x1="12" y1="1" x2="12" y2="23"></line>
                                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                                         </svg>
-                                        <h2 class="fw-normal h6 mb-1 text-black-50">Valor</h2>
+                                        <h2 class="fw-normal h6 mb-1 text-black-50">Acessibilidade</h2>
                                     </a>
                                 </div>
                                 <div class="col-4 col-lg-2">
-                                    <a class="bg-white d-block link-primary pb-4 pe-3 ps-3 pt-4 text-decoration-none"
-                                        href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                            fill="currentColor" width="2.5rem" height="2.5rem" class="mb-3 text-danger">
+                                    <a class="bg-white d-block link-primary pb-4 pe-3 ps-3 pt-4 text-decoration-none"><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            width="2.5rem" height="2.5rem" class="mb-3 text-danger">
                                             <g>
                                                 <path fill="none" d="M0 0h24v24H0z"></path>
                                                 <path
@@ -175,7 +176,7 @@
                                                 </path>
                                             </g>
                                         </svg>
-                                        <h2 class="fw-normal h6 mb-1 text-black-50">Ambiente</h2>
+                                        <h2 class="fw-normal h6 mb-1 text-black-50">Lazer</h2>
                                     </a>
                                 </div>
                             </div>
@@ -183,517 +184,54 @@
                     </div>
                 </section>
                 <div class="container">
-                    <div class="mb-4 text-center">
+                    <div class="mb-4 text-center mt-4">
                         <h2 class="text-dark">Destaques da Semana</h2>
-                        <p>Abaixo estão listados os lugar mais acessados da semana.</p>
+                        <p>Abaixo estão listados os lugares mais acessados da semana.</p>
                     </div>
-                    <div class="justify-content-center row">
-                        <div class="col-lg-4 col-md-6 pb-3 pt-3">
-                            <div class="border"> <a href="#" class="d-block"><img
-                                        src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixid=MXwyMDkyMnwwfDF8c2VhcmNofDY5fHxhbyUyMG5hbmd8ZW58MHx8fA&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=350&h=240&fit=crop"
-                                        class="img-fluid w-100" alt="Location image" width="350" height="240"></a>
-                                <div class="pb-3 ps-4 pe-4 pt-4">
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1"><a href="#" class="link-dark text-decoration-none">
-                                                <h3 class="h5 mb-1">Panan Krabi Resort</h3>
-                                            </a>
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="me-1 text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M18.364 17.364L12 23.728l-6.364-6.364a9 9 0 1 1 12.728 0zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                                                    </g>
-                                                </svg><span class="align-middle">Ao Nang, Thailand</span>
-                                            </div>
-                                        </div><a class="bg-danger border-danger btn btn-primary ms-2 p-2 rounded-pill"
-                                            href="#" aria-label="Add to favorite"><svg
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                fill="currentColor" width="1em" height="1em" class="d-block">
-                                                <g>
-                                                    <path fill="none" d="M0 0H24V24H0z" />
-                                                    <path
-                                                        d="M20.243 4.757c2.262 2.268 2.34 5.88.236 8.236l-8.48 8.492-8.478-8.492c-2.104-2.356-2.025-5.974.236-8.236C5.515 3 8.093 2.56 10.261 3.44L6.343 7.358l1.414 1.415L12 4.53l-.013-.014.014.013c2.349-2.109 5.979-2.039 8.242.228z" />
-                                                </g>
-                                            </svg></a>
-                                    </div>
-                                    <hr />
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1"><span class="me-1 text-primary"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 15.968l4.247 2.377-.949-4.773 3.573-3.305-4.833-.573L12 5.275v10.693zm0 2.292l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928L12 18.26z" />
-                                                    </g>
-                                                </svg></span><span class="align-middle">432 reviews</span>
-                                        </div><span class="fw-bold pb-1 pt-1"><span>R$</span><span>235</span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pb-3 pt-3">
-                            <div class="border"> <a href="#" class="d-block"><img
-                                        src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?ixid=MXwyMDkyMnwwfDF8c2VhcmNofDkxfHxjaGljYWdvJTIwaG90ZWx8ZW58MHx8fA&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=350&h=240&fit=crop"
-                                        class="img-fluid w-100" alt="Location image" width="350" height="240"></a>
-                                <div class="pb-3 ps-4 pe-4 pt-4">
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1"><a href="#" class="link-dark text-decoration-none">
-                                                <h3 class="h5 mb-1">Holiday Inn Rotorua</h3>
-                                            </a>
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="me-1 text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M18.364 17.364L12 23.728l-6.364-6.364a9 9 0 1 1 12.728 0zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                                                    </g>
-                                                </svg><span class="align-middle">Rotorua, New Zealand</span>
-                                            </div>
-                                        </div><a class="btn btn-danger ms-2 p-2 rounded-pill" href="#"
-                                            aria-label="Add to favorite"><svg xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"
-                                                class="d-block">
-                                                <g>
-                                                    <path fill="none" d="M0 0H24V24H0z" />
-                                                    <path
-                                                        d="M20.243 4.757c2.262 2.268 2.34 5.88.236 8.236l-8.48 8.492-8.478-8.492c-2.104-2.356-2.025-5.974.236-8.236C5.515 3 8.093 2.56 10.261 3.44L6.343 7.358l1.414 1.415L12 4.53l-.013-.014.014.013c2.349-2.109 5.979-2.039 8.242.228z" />
-                                                </g>
-                                            </svg></a>
-                                    </div>
-                                    <hr />
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1"><span class="me-1 text-primary"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 15.968l4.247 2.377-.949-4.773 3.573-3.305-4.833-.573L12 5.275v10.693zm0 2.292l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928L12 18.26z" />
-                                                    </g>
-                                                </svg></span><span class="align-middle">432 reviews</span>
-                                        </div><span class="fw-bold pb-1 pt-1"><span>R$</span><span>235</span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pb-3 pt-3">
-                            <div class="border"> <a href="#" class="d-block"><img
-                                        src="https://images.unsplash.com/photo-1548588627-f978862b85e1?ixid=MXwyMDkyMnwwfDF8c2VhcmNofDY5fHxhbm5hcHVybmElMjBiYXNlJTIwY2FtcHxlbnwwfHx8&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=350&h=240&fit=crop"
-                                        class="img-fluid w-100" alt="Location image" width="350" height="240"></a>
-                                <div class="pb-3 ps-4 pe-4 pt-4">
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1"><a href="#" class="link-dark text-decoration-none">
-                                                <h3 class="h5 mb-1">Annpurna Base Camp</h3>
-                                            </a>
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="me-1 text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M18.364 17.364L12 23.728l-6.364-6.364a9 9 0 1 1 12.728 0zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                                                    </g>
-                                                </svg><span class="align-middle">Ghandruk, Nepal</span>
-                                            </div>
-                                        </div><a class="btn btn-danger ms-2 p-2 rounded-pill" href="#"
-                                            aria-label="Add to favorite"><svg xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"
-                                                class="d-block">
-                                                <g>
-                                                    <path fill="none" d="M0 0H24V24H0z" />
-                                                    <path
-                                                        d="M20.243 4.757c2.262 2.268 2.34 5.88.236 8.236l-8.48 8.492-8.478-8.492c-2.104-2.356-2.025-5.974.236-8.236C5.515 3 8.093 2.56 10.261 3.44L6.343 7.358l1.414 1.415L12 4.53l-.013-.014.014.013c2.349-2.109 5.979-2.039 8.242.228z" />
-                                                </g>
-                                            </svg></a>
-                                    </div>
-                                    <hr />
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1"><span class="me-1 text-primary"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 15.968l4.247 2.377-.949-4.773 3.573-3.305-4.833-.573L12 5.275v10.693zm0 2.292l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928L12 18.26z" />
-                                                    </g>
-                                                </svg></span><span class="align-middle">432 reviews</span>
-                                        </div><span class="fw-bold pb-1 pt-1"><span>R$235</span><span
-                                                class="opacity-50"></span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pb-3 pt-3">
-                            <div class="border"> <a href="#" class="d-block"><img
-                                        src="https://images.unsplash.com/photo-1569369926169-9ee7fb80adeb?ixid=MXwyMDkyMnwwfDF8c2VhcmNofDMwfHxldmVyZXN0JTIwaG90ZWx8ZW58MHx8fA&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=350&h=240&fit=crop"
-                                        class="img-fluid w-100" alt="Location image" width="350" height="240"></a>
-                                <div class="pb-3 ps-4 pe-4 pt-4">
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1">
-                                            <a href="#" class="link-dark text-decoration-none">
-                                                <h3 class="h5 mb-1">The Whitehall Hotel</h3>
-                                            </a>
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="me-1 text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z"></path>
-                                                        <path
-                                                            d="M18.364 17.364L12 23.728l-6.364-6.364a9 9 0 1 1 12.728 0zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z">
-                                                        </path>
-                                                    </g>
-                                                </svg>
-                                                <span class="align-middle">East Delaware, Chicago</span>
-                                            </div>
-                                        </div>
-                                        <a class="btn btn-danger ms-2 p-2 rounded-pill" href="#"
-                                            aria-label="Add to favorite"><svg xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"
-                                                class="d-block">
-                                                <g>
-                                                    <path fill="none" d="M0 0H24V24H0z"></path>
-                                                    <path
-                                                        d="M20.243 4.757c2.262 2.268 2.34 5.88.236 8.236l-8.48 8.492-8.478-8.492c-2.104-2.356-2.025-5.974.236-8.236C5.515 3 8.093 2.56 10.261 3.44L6.343 7.358l1.414 1.415L12 4.53l-.013-.014.014.013c2.349-2.109 5.979-2.039 8.242.228z">
-                                                    </path>
-                                                </g>
-                                            </svg></a>
-                                    </div>
-                                    <hr>
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1">
-                                            <span class="me-1 text-primary"><svg xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 24 24" fill="currentColor" width="1.125em"
-                                                    height="1.125em" class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z"></path>
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z">
-                                                        </path>
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z"></path>
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z">
-                                                        </path>
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z"></path>
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z">
-                                                        </path>
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z"></path>
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z">
-                                                        </path>
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z"></path>
-                                                        <path
-                                                            d="M12 15.968l4.247 2.377-.949-4.773 3.573-3.305-4.833-.573L12 5.275v10.693zm0 2.292l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928L12 18.26z">
-                                                        </path>
-                                                    </g>
-                                                </svg></span>
-                                            <span class="align-middle">432 reviews</span>
-                                        </div>
-                                        <span
-                                            class="fw-bold pb-1 pt-1"><span>R$235</span><span></span><span></span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pb-3 pt-3">
-                            <div class="border"> <a href="#" class="d-block"><img
-                                        src="https://images.unsplash.com/photo-1590401939533-2e990cbce326?ixid=MXwyMDkyMnwwfDF8c2VhcmNofDQ3fHxUYW5haCUyMExvdCUyMFRlbXBsZSwlMjBiYWxpfGVufDB8fHw&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=350&h=240&fit=crop"
-                                        class="img-fluid w-100" alt="Location image" width="350" height="240"></a>
-                                <div class="pb-3 ps-4 pe-4 pt-4">
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1"><a href="#" class="link-dark text-decoration-none">
-                                                <h3 class="h5 mb-1">Tanah Lot Temple</h3>
-                                            </a>
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="me-1 text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M18.364 17.364L12 23.728l-6.364-6.364a9 9 0 1 1 12.728 0zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                                                    </g>
-                                                </svg><span class="align-middle">Beraban, Kediri, Bali</span>
-                                            </div>
-                                        </div><a class="btn btn-danger btn-outline-danger ms-2 p-2 rounded-pill"
-                                            href="#" aria-label="Add to favorite"><svg
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                fill="currentColor" width="1em" height="1em" class="d-block text-white">
-                                                <g>
-                                                    <path fill="none" d="M0 0H24V24H0z" />
-                                                    <path
-                                                        d="M20.243 4.757c2.262 2.268 2.34 5.88.236 8.236l-8.48 8.492-8.478-8.492c-2.104-2.356-2.025-5.974.236-8.236C5.515 3 8.093 2.56 10.261 3.44L6.343 7.358l1.414 1.415L12 4.53l-.013-.014.014.013c2.349-2.109 5.979-2.039 8.242.228z" />
-                                                </g>
-                                            </svg></a>
-                                    </div>
-                                    <hr />
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1"><span class="me-1 text-primary"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 15.968l4.247 2.377-.949-4.773 3.573-3.305-4.833-.573L12 5.275v10.693zm0 2.292l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928L12 18.26z" />
-                                                    </g>
-                                                </svg></span><span class="align-middle">432 reviews</span>
-                                        </div><span class="fw-bold pb-1 pt-1"><span>R$235</span><span
-                                                class="opacity-50"></span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pb-3 pt-3">
-                            <div class="border"> <a href="reservation.html" class="d-block"><img
-                                        src="https://images.unsplash.com/photo-1605825831039-8b6b4199b04a?ixid=MXwyMDkyMnwwfDF8c2VhcmNofDI3fHxldmVyZXN0JTIwaG90ZWx8ZW58MHx8fA&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=350&h=240&fit=crop"
-                                        class="img-fluid w-100" alt="Location image" width="350" height="240"></a>
-                                <div class="pb-3 ps-4 pe-4 pt-4">
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1"><a href="#" class="link-dark text-decoration-none">
-                                                <h3 class="h5 mb-1">Hotel Abbazia</h3>
-                                            </a>
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="me-1 text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M18.364 17.364L12 23.728l-6.364-6.364a9 9 0 1 1 12.728 0zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                                                    </g>
-                                                </svg><span class="align-middle">Venice, Italy</span>
-                                            </div>
-                                        </div><a class="btn btn-danger ms-2 p-2 rounded-pill" href="#"
-                                            aria-label="Add to favorite"><svg xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"
-                                                class="d-block">
-                                                <g>
-                                                    <path fill="none" d="M0 0H24V24H0z" />
-                                                    <path
-                                                        d="M20.243 4.757c2.262 2.268 2.34 5.88.236 8.236l-8.48 8.492-8.478-8.492c-2.104-2.356-2.025-5.974.236-8.236C5.515 3 8.093 2.56 10.261 3.44L6.343 7.358l1.414 1.415L12 4.53l-.013-.014.014.013c2.349-2.109 5.979-2.039 8.242.228z" />
-                                                </g>
-                                            </svg></a>
-                                    </div>
-                                    <hr />
-                                    <div class="align-items-center d-flex justify-content-between">
-                                        <div class="pb-1 pt-1"><span class="me-1 text-primary"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" />
-                                                    </g>
-                                                </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                    fill="currentColor" width="1.125em" height="1.125em"
-                                                    class="text-danger">
-                                                    <g>
-                                                        <path fill="none" d="M0 0h24v24H0z" />
-                                                        <path
-                                                            d="M12 15.968l4.247 2.377-.949-4.773 3.573-3.305-4.833-.573L12 5.275v10.693zm0 2.292l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928L12 18.26z" />
-                                                    </g>
-                                                </svg></span><span class="align-middle">432 reviews</span>
-                                        </div><span class="fw-bold pb-1 pt-1"><span>R$235</span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pb-3 pt-3 text-center"><a class="btn btn-danger pe-4 ps-4 rounded-pill" href="#">Ver
-                            mais</a>
-                    </div>
+                    <div id="excursion-container" class="row"></div>
                 </div>
             </section>
+            <footer>
+                <img src="/fatour/landingPage/src/images/wave.svg" alt="">
+
+                <div id="footer_items">
+                    <span id="copyright">
+                        &FATOUR 2024
+                    </span>
+
+                    <div class="social-media-buttons">
+                        <a href="" style="text-decoration: none; color: #fff; margin: 15px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                                class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                <path
+                                    d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                            </svg>
+                        </a>
+
+                        <a href="" style="text-decoration: none; color: #fff; margin: 15px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                                class="bi bi-instagram" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                            </svg>
+                        </a>
+
+                        <a href="" style="text-decoration: none; color: #fff; margin: 15px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                                class="bi bi-linkedin" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </footer>
         </main>
     </div>
     <script src="assets/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="pgia/lib/pgia.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/fatour/landingPage/src/javascript/script.js"></script>
 
     <!--Script Control Access-->
     <script>
@@ -701,7 +239,7 @@
 
         const controlAcess = document.getElementById('controlAcess');
         if (userId === null || userId === undefined) {
-            controlAcess.style.display = 'none'; 
+            controlAcess.style.display = 'none';
         }
     </script>
 
@@ -713,9 +251,121 @@
             window.location.href = "/fatour/login.html";
         });
     </script>
+
+    <!-- Script Toast Fire -->
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        });
+    </script>
+
+    <!-- Script para receber os cards dinamicamente -->
+    <script>
+        localStorage.removeItem("detalhesExcursoes");
+        localStorage.removeItem("dadosReserva");
+        
+        let excursoesOriginais = [];
+
+        window.onload = carregarExcursões;
+
+        async function carregarExcursões() {
+            try {
+                const response = await fetch('http://127.0.0.1:8080/api/excursions');
+                const excursoes = await response.json();
+                excursoesOriginais = excursoes;
+                populateExcursionCards(excursoes);
+
+            } catch (error) {
+                Toast.fire({
+                    icon: "error",
+                    title: "Erro ao carregar as excursões"
+                });
+            }
+        }
+
+        function populateExcursionCards(data) {
+            const container = document.getElementById('excursion-container');
+            container.innerHTML = '';
+
+            data.forEach(excursion => {
+                const card = document.createElement('div');
+                card.className = 'col-lg-4 col-md-6 pb-3 pt-3';
+
+                card.innerHTML = `
+                    <div class="card h-100">
+                        <img src="data:image/jpeg;base64,${excursion.image}" class="card-img-top" alt="${excursion.location}" style="object-fit: cover; height: 240px; width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>${excursion.location}</strong></h5>
+                            <p class="card-text">${excursion.description}</p>
+                            <p><strong>Data de ida:</strong> ${new Date(excursion.going).toLocaleString()}</p>
+                            <p><strong>Data de volta:</strong> ${new Date(excursion.back).toLocaleString()}</p>
+                            <p><strong>Assentos disponíveis:</strong> ${excursion.numberOfSeats}</p>
+                            <p><strong>Preço:</strong> R$ ${excursion.price}</p>
+                            <div class="d-flex justify-content-center">
+                                <a href="/fatour/home/reservation.html?id=${excursion.id}" class="btn btn-danger btn-lg" style="width: 100%;">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function filterExcursions(query) {
+            const filteredData = excursoesOriginais.filter(excursion =>
+                excursion.location.toLowerCase().includes(query.toLowerCase())
+            );
+            populateExcursionCards(filteredData);
+        }
+
+        document.getElementById('search-input').addEventListener('input', function () {
+            const query = this.value;
+            filterExcursions(query);
+        });
+
+    </script>
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
         #logout:hover {
             cursor: pointer;
+        }
+
+        footer {
+            background-color: #f55a5a;
+        }
+
+        #footer_items {
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 8% 24px 8%;
+            align-items: center;
+        }
+
+        #copyright {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        @media screen and (max-width: 600px) {
+            #footer_items {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
     </style>
 </body>
