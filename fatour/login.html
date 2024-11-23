@@ -116,8 +116,11 @@
                             title: data.msg
                         });
                     } else {
-                        let userId = data.id;                        
+                        let userId = data.id;   
+                        let role = data.role;         
+
                         localStorage.setItem('userId', userId);
+                        localStorage.setItem('role', role);
                         
                         Toast.fire({
                             icon: "success",
