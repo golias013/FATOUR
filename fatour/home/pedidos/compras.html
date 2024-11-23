@@ -232,7 +232,6 @@
         const mapContainer = document.getElementById('map-container');
 
         carregarExcursoesUsuario();
-        updateMap();
 
         async function carregarExcursoesUsuario() {
             try {
@@ -285,7 +284,7 @@
 
         function formatarData(dataISO) {
             const [ano, mes, dia] = dataISO.split('-');
-            const data = new Date(ano, mes - 1, dia); 
+            const data = new Date(ano, mes - 1, dia);
             return data.toLocaleDateString('pt-BR');
         }
 
@@ -297,8 +296,11 @@
         async function verDetalhes(paymentId) {
             try {
                 const response = await fetch(`http://127.0.0.1:8080/api/usuarios/${userId}/payments/${paymentId}/details`);
-                const pedidosDetalhados = await response.json();
-                console.log(pedidosDetalhados);
+                const data = await response.json();
+
+                updateMap(data.location);
+                populateModal(data);
+
             } catch (error) {
                 Toast.fire({
                     icon: "error",
@@ -307,9 +309,38 @@
             }
         }
 
+        function populateModal(data) {
+            document.querySelector(".modal-header h2").textContent = `ID do Pedido: ${data.paymentId}`;
+            document.querySelector(".modal-header p").textContent = `Data da Compra: ${formatarData(data.date)}`;
 
-        function updateMap() {
-            let location = "Aparecida do Norte";
+            document.querySelector(".viagem-header p").textContent = data.location;
+
+            const horarios = document.querySelectorAll(".viagem-horarios .horario");
+            if (horarios.length >= 2) {
+                horarios[0].textContent = formatarDataHora(data.going);
+                horarios[1].textContent = formatarDataHora(data.back);
+            }
+
+            const passageirosContainer = document.querySelector(".viagem-passageiros");
+            const assentos = data.seats;
+
+            const assentosAntigos = passageirosContainer.querySelectorAll(".assento-reservado");
+            assentosAntigos.forEach(assento => assento.remove());
+
+            assentos.forEach(seat => {
+                const assentoDiv = document.createElement("div");
+                assentoDiv.classList.add("assento-reservado");
+                assentoDiv.innerHTML = `
+                    <p>Nome: ${seat.name}</p>
+                    <p>Assento: ${seat.seatNumber}</p>
+                `;
+                passageirosContainer.appendChild(assentoDiv);
+            });
+        }
+
+
+
+        function updateMap(location) {
             const iframeSrc = `https://www.google.com/maps/embed/v1/search?key=AIzaSyAonkmw24wKh2V_bwDysg2bkn_g2JXhz94&q=${encodeURIComponent(location + " Pontos turísticos")}`;
             mapContainer.innerHTML = `<iframe width="760" height="450" frameborder="0" style="border:0;" src="${iframeSrc}" allowfullscreen></iframe>`;
         }
