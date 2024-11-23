@@ -303,6 +303,15 @@
                     const telefone = document.getElementById(`telefone-${assento}`).value.replace(/\D/g, '');
                     const cpf = document.getElementById(`cpf-${assento}`).value.replace(/\D/g, '');
 
+                    if (!email.includes("@")) {
+                        Toast.fire({
+                            icon: "error",
+                            title: `O email digitado não é válido para o assento ${assento}.`
+                        });
+                        todosDadosValidos = false;
+                        return;
+                    }
+
                     if (nome === '') {
                         Toast.fire({
                             icon: "error",
