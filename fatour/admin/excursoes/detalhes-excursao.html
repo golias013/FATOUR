@@ -40,29 +40,51 @@
         <main>
             <section class="pb-5 pt-5 mt-5">
                 <div style="margin: 15px; justify-content: center; display: flex;">
-                    <h2>Excursões</h2>
+                    <div style="display: flex; align-items: center; text-align: center; gap: 10px;">
+                        <h2>Passageiros</h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-people" viewBox="0 0 16 16" style="margin-right: 8px;">
+                            <path
+                                d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4" />
+                        </svg>
+                    </div>
                 </div>
                 <div style="justify-content: center; align-items: center; display: flex;">
-                    <div style="margin: 15px; justify-content: flex-end; display: flex; width: 90%;">
-                        <a href="/fatour/admin/excursoes/nova-excursao.html">
-                            <button type="button" class="btn btn-success">
-                                Nova Excursão
+                    <div style="margin: 15px; justify-content: flex-start; display: flex; width: 90%;">
+                        <a href="/fatour/admin/excursoes.html" style="text-decoration: none;">
+                            <button type="button" class="btn btn-secondary"
+                                style="align-items: center; display: flex; gap: 5px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                                </svg> Voltar
                             </button>
                         </a>
+                        <button type="button" class="btn btn-primary"
+                            style="margin-left: 10px; align-items: center; display: flex; gap: 5px;"
+                            onclick="baixarTabelaComoPDF()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-download" viewBox="0 0 16 16">
+                                <path
+                                    d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+                                <path
+                                    d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
+                            </svg> Baixar dados
+                        </button>
                     </div>
                 </div>
                 <div style="justify-content: center; align-items: center; display: flex;">
                     <div class="table-responsive border rounded p-3" style="width: 90%;">
-                        <table class="table" style="font-size: 16px; width: 100%;">
+                        <table id="dadosTabela" class="table" style="font-size: 16px; width: 100%;">
                             <thead>
                                 <tr>
-                                    <th style="width: 10%; text-align: center;" scope="col">ID</th>
-                                    <th style="width: 20%; text-align: center;" scope="col">Local</th>
-                                    <th style="width: 20%; text-align: center;" scope="col">Preço</th>
-                                    <th style="width: 15%; text-align: center;" scope="col">Data - Ida</th>
-                                    <th style="width: 15%; text-align: center;" scope="col">Data - Volta</th>
-                                    <th style="width: 20%; text-align: center;" scope="col">Assentos</th>
-                                    <th style="width: 20%; text-align: center;" scope="col">Ações</th>
+                                    <th style="width: 10%; text-align: center;" scope="col">Assento</th>
+                                    <th style="width: 20%; text-align: center;" scope="col">CPF</th>
+                                    <th style="width: 20%; text-align: center;" scope="col">Email</th>
+                                    <th style="width: 15%; text-align: center;" scope="col">Nome</th>
+                                    <th style="width: 15%; text-align: center;" scope="col">Telefone</th>
+                                    <th style="width: 20%; text-align: center;" scope="col">Id da excursão</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -76,6 +98,10 @@
     <script src="/fatour/home/assets/js/popper.min.js"></script>
     <script src="/fatour/home/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+
+
 
     <!-- Script Logout -->
     <script>
@@ -103,44 +129,30 @@
 
     <!-- Script Funcionalidades principais -->
     <script>
-        window.onload = carregarExcursões;
+        const urlParams = new URLSearchParams(window.location.search);
+        const excursionId = urlParams.get('excursionId');
 
-        async function carregarExcursões() {
+        window.onload = carregarExcursões(excursionId);
+
+        async function carregarExcursões(excursionId) {
             try {
-                const response = await fetch('http://127.0.0.1:8080/api/excursions');
-                const excursões = await response.json();
+                const response = await fetch(`http://127.0.0.1:8080/api/excursions/${excursionId}/seat`);
+                const passageiros = await response.json();
 
                 const tabelaBody = document.querySelector('table tbody');
                 tabelaBody.innerHTML = '';
 
-                excursões.forEach(excursão => {
+                passageiros.forEach(passageiros => {
                     const row = document.createElement('tr');
-                    row.setAttribute('data-id', excursão.id);
+                    row.setAttribute('data-id', passageiros.id);
 
                     row.innerHTML = `
-                        <td style="text-align: center;">${excursão.id}</td>
-                        <td style="text-align: center;">${excursão.location}</td>
-                        <td style="text-align: center;">R$${excursão.price}</td>
-                        <td style="text-align: center;">${new Date(excursão.going).toLocaleString('pt-BR')}</td>
-                        <td style="text-align: center;">${new Date(excursão.back).toLocaleString('pt-BR')}</td>
-                        <td style="text-align: center;">${excursão.numberOfSeats}</td>
-                        <td style="text-align: center; display: flex; justify-content: center; gap: 8px;">
-                            <a href="/fatour/admin/excursoes/detalhes-excursao.html?excursionId=${excursão.id}">
-                                <button class="btn btn-primary btn-sm" style="font-size: 16px; display: flex; align-items: center; gap: 5px;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                                        <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
-                                    </svg>
-                                    Passageiros
-                                </button>
-                            </a>
-                            <button class="btn btn-danger btn-sm" style="font-size: 16px; display: flex; align-items: center; gap: 5px;" onclick="deletarExcursão(${excursão.id})">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-                                </svg>
-                                Deletar
-                            </button>
-                        </td>
+                        <td style="text-align: center;">${passageiros.seatNumber}</td>
+                        <td style="text-align: center;">${passageiros.cpf}</td>
+                        <td style="text-align: center;">${passageiros.email}</td>
+                        <td style="text-align: center;">${passageiros.name}</td>
+                        <td style="text-align: center;">${passageiros.telephone}</td>
+                        <td style="text-align: center;">${passageiros.excursionId}</td>
                     `;
 
                     tabelaBody.appendChild(row);
@@ -148,51 +160,36 @@
             } catch (error) {
                 Toast.fire({
                     icon: "error",
-                    title: "Erro ao carregar as excursões."
+                    title: "Erro ao carregar os passageiros."
                 });
             }
         }
 
-        async function deletarExcursão(id) {
-            Swal.fire({
-                title: "Tem certeza?",
-                text: "Você não poderá reverter isso!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Sim, delete!"
-            }).then(async (result) => {
-                if (result.isConfirmed) {
-                    try {
-                        const response = await fetch(`http://127.0.0.1:8080/api/excursions/${id}`, {
-                            method: 'DELETE'
-                        });
+        async function baixarTabelaComoPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
 
-                        if (response.status === 204 || response.ok) {
-                            document.querySelector(`tr[data-id='${id}']`).remove();
+            const tabela = document.getElementById("dadosTabela");
 
-                            Toast.fire({
-                                icon: "success",
-                                title: "Excursão deletada com sucesso!"
-                            });
-
-                        } else {
-                            Toast.fire({
-                                icon: "error",
-                                title: "Erro ao deletar a excursão."
-                            });
-                        }
-                    } catch (error) {
-                        console.error('Erro ao deletar a excursão:', error);
-                        Toast.fire({
-                            icon: "error",
-                            title: "Erro ao tentar deletar a excursão."
-                        });
-                    }
+            const rows = [];
+            for (let row of tabela.rows) {
+                const rowData = [];
+                for (let cell of row.cells) {
+                    rowData.push(cell.innerText);
                 }
+                rows.push(rowData);
+            }
+
+            doc.text("Dados de compras da excursão", 10, 10);
+            doc.autoTable({
+                head: [Array.from(tabela.rows[0].cells).map(cell => cell.innerText)],
+                body: rows.slice(1),
             });
+
+            // Baixe o PDF
+            doc.save("dados-passageiros.pdf");
         }
+
     </script>
 
     <style>

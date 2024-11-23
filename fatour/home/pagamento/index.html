@@ -23,29 +23,39 @@
         </div>
 
         <div class="payment-method">
-          <label for="card" class="method card">
+          <label for="card-credit" class="method card">
             <div class="card-logos">
               <img src="https://designmodo.com/demo/checkout-panel/img/visa_logo.png" />
               <img src="https://designmodo.com/demo/checkout-panel/img/mastercard_logo.png" />
             </div>
-
             <div class="radio-input">
-              <input id="card" type="radio" name="payment">
+              <input id="card-credit" type="radio" name="payment" onclick="toggleInstallments(true)">
               Pague <span id="valorPagamentoCartao"></span> com cartão de crédito
             </div>
           </label>
 
-          <label for="card" class="method card">
+          <label for="card-debit" class="method card">
             <div class="card-logos">
               <img src="https://designmodo.com/demo/checkout-panel/img/visa_logo.png" />
               <img src="https://designmodo.com/demo/checkout-panel/img/mastercard_logo.png" />
             </div>
-
             <div class="radio-input">
-              <input id="card" type="radio" name="payment">
+              <input id="card-debit" type="radio" name="payment" onclick="toggleInstallments(false)">
               Pague <span id="valorPagamentoCartaoDebito"></span> com cartão de débito
             </div>
           </label>
+        </div>
+
+        <div id="installment-options" style="display: none; margin-bottom: 30px">
+          <label for="installments">Parcelar em:</label>
+          <select id="installments" name="installments">
+            <option value="1">1x (sem parcelamento)</option>
+            <option value="2">2x</option>
+            <option value="3">3x</option>
+            <option value="4">4x</option>
+            <option value="5">5x</option>
+            <option value="6">6x</option>
+          </select>
         </div>
 
         <div class="input-fields">
@@ -115,79 +125,106 @@
 
   <!-- Script Logica -->
   <script>
+    let excursaoId;
+    let dadosAssentos;
+
     document.addEventListener("DOMContentLoaded", async () => {
       let detalhesExcursoes = JSON.parse(localStorage.getItem("detalhesExcursoes"));
-      let userId = detalhesExcursoes.userId;
-      let excursaoId = detalhesExcursoes.excursaoId;
+      userId = detalhesExcursoes.userId;
+      excursaoId = detalhesExcursoes.excursaoId;
 
       let dadosReserva = JSON.parse(localStorage.getItem("dadosReserva"));
-      let dadosAssentos = dadosReserva.dadosAssentos;
+      dadosAssentos = dadosReserva.dadosAssentos;
 
       try {
         let valorExcursao = await obterValorExcursao(excursaoId);
-
         let valorPagamento = valorExcursao * dadosAssentos.length;
+
         document.getElementById("valorPagamentoCartao").innerText = `R$${valorPagamento.toFixed(2).replace(".", ",")}`;
         document.getElementById("valorPagamentoCartaoDebito").innerText = `R$${valorPagamento.toFixed(2).replace(".", ",")}`;
 
+        const installmentsDropdown = document.getElementById("installments");
+        installmentsDropdown.innerHTML = "";
+
+        for (let i = 1; i <= 6; i++) {
+          const valorParcela = valorPagamento / i;
+          const option = document.createElement("option");
+          if (i === 1) {
+            option.value = i;
+            option.textContent = `1x de R$${valorParcela.toFixed(2).replace(".", ",")} (sem parcelamento)`;
+          } else {
+            option.value = i;
+            option.textContent = `${i}x de R$${valorParcela.toFixed(2).replace(".", ",")}`;
+          }
+          installmentsDropdown.appendChild(option);
+        }
       } catch (error) {
         Toast.fire({
           icon: "error",
           title: error
         });
       }
-
-      document.getElementById("btnComprar").addEventListener("click", function () {
-        const nomeTitularCartao = document.getElementById('cardholder').value;
-        const numeroCartao = document.getElementById('cardnumber').value;
-        const validadeCartao = document.getElementById('validate').value;
-        const cvvCartao = document.getElementById('cvv').value;
-
-        if (!validarNumeroCartao(numeroCartao)) {
-          Toast.fire({
-            icon: "error",
-            title: "Número do cartão invalido."
-          });
-          return;
-        }
-
-        let dadosPagamento = {
-          titular: nomeTitularCartao,
-          numero: numeroCartao,
-          validade: validadeCartao,
-          cvv: cvvCartao,
-          userId: userId,
-          excursaoId: excursaoId
-        }
-
-        enviarDadosCompraExcursao(dadosAssentos, dadosPagamento);
-      });
-
-      document.getElementById('cardnumber').addEventListener('input', function (e) {
-        let valor = e.target.value.replace(/\D/g, '');
-
-        let formato = '';
-        for (let i = 0; i < valor.length; i++) {
-          if (i > 0 && i % 4 === 0) {
-            formato += ' ';
-          }
-          formato += valor[i];
-        }
-
-        e.target.value = formato.trim();
-      });
-
-      document.getElementById("validate").addEventListener("input", function (e) {
-        let input = e.target.value.replace(/\D/g, "");
-        if (input.length > 4) input = input.slice(0, 4);
-
-        if (input.length >= 3) {
-          input = input.slice(0, 2) + "/" + input.slice(2);
-        }
-
-        e.target.value = input;
-      });
     });
+
+    document.getElementById("btnComprar").addEventListener("click", function () {
+      const nomeTitularCartao = document.getElementById('cardholder').value;
+      const numeroCartao = document.getElementById('cardnumber').value;
+      const validadeCartao = document.getElementById('validate').value;
+      const cvvCartao = document.getElementById('cvv').value;
+
+      if (!validarNumeroCartao(numeroCartao)) {
+        Toast.fire({
+          icon: "error",
+          title: "Número do cartão invalido."
+        });
+        return;
+      }
+
+      let dadosPagamento = {
+        titular: nomeTitularCartao,
+        numero: numeroCartao,
+        validade: validadeCartao,
+        cvv: cvvCartao,
+        userId: userId,
+        excursaoId: excursaoId
+      }
+
+      enviarDadosCompraExcursao(dadosAssentos, dadosPagamento);
+    });
+
+    document.getElementById('cardnumber').addEventListener('input', function (e) {
+      let valor = e.target.value.replace(/\D/g, '');
+
+      let formato = '';
+      for (let i = 0; i < valor.length; i++) {
+        if (i > 0 && i % 4 === 0) {
+          formato += ' ';
+        }
+        formato += valor[i];
+      }
+
+      e.target.value = formato.trim();
+    });
+
+    document.getElementById("validate").addEventListener("input", function (e) {
+      let input = e.target.value.replace(/\D/g, "");
+      if (input.length > 4) input = input.slice(0, 4);
+
+      if (input.length >= 3) {
+        input = input.slice(0, 2) + "/" + input.slice(2);
+      }
+
+      e.target.value = input;
+    });
+
+    function toggleInstallments(show) {
+      const installmentOptions = document.getElementById("installment-options");
+      if (show) {
+        installmentOptions.style.display = "block";
+      } else {
+        installmentOptions.style.display = "none";
+      }
+    }
 
     async function enviarDadosCompraExcursao(assentos, pagamento) {
       try {

@@ -92,7 +92,7 @@ ol {
 }
 
 .seat input[type=checkbox]:checked + label {
-    background: #bada55;
+    background: #F42536;
     animation-name: rubberBand;
     animation-duration: 300ms;
     animation-fill-mode: both;
@@ -127,7 +127,7 @@ ol {
     font-weight: bold;
     line-height: 1.5rem;
     padding: 4px 0;
-    background: #F42536;
+    background: #34d749;
     border-radius: 5px;
     animation-duration: 300ms;
     animation-fill-mode: both;
@@ -148,6 +148,15 @@ ol {
 .seat label:hover {
     cursor: pointer;
     box-shadow: 0 0 0px 2px #5C6AFF;
+}
+
+.occupied {
+    background-color: red;
+    color: #757575;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    padding: 2px 5px;
 }
 
 @keyframes rubberBand {

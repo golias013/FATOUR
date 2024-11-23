@@ -6,85 +6,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fatour</title>
     <link rel="icon" href="/fatour/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylesPedidos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/fatour/home/bootstrap/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div id="accessControl">
-        <div class="header">
-            <h1>FATOUR</h1>
-        </div>
-        <div class="interativos">
-            <div class="search-container">
-                <input id="search-bar" type="text" placeholder="Search...">
-                <button id="search-button">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-            <button> Ajuda com o pedido </button>
-        </div>
-        <div class="container">
-            <div class="order">
-                <div class="order-header">
-                    <div class="dados">
-                        <p>Código do pedido:</p>
-                        <h3>41035388</h3>
-                    </div>
-                    <div class="dados">
-                        <p>Data da Compra:</p>
-                        <h3>13/10/2024</h3>
-                    </div>
-                </div>
-                <hr class="line">
-                <div class="order-details">
-                    <div class="location">
-                        <p>Guaruja, SP</p>
-                        <p>Sao Paulo, SP - Jabaquara</p>
-                    </div>
-                    <p class="status">Confirmado</p>
-                </div>
-            </div>
-            <div class="button-container">
-                <button class="detalhes">VER DETALHES</button>
-            </div>
-        </div>
-
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="close-button">&times;</span>
-
-                <div class="modal-header">
-                    <h2>Pedido: 71GZ4OPZ</h2>
-                    <p>Data da compra: 13/10/2024</p>
-                </div>
-
-                <div class="modal-status">
-                    <p class="status-confirmado">Confirmado</p>
-                    <button class="cancelar-pedido">Cancelar pedido</button>
-                </div>
-
-                <div class="modal-viagem">
-                    <h3>Viagem</h3>
-                    <div class="viagem-info">
-                        <div class="viagem-header">
-                            <p>Coloca a logo e o nome da empresa aqui</p>
+    <div id="controlAcess">
+        <div style="min-height: 70vh;">
+            <header style="background-color: rgba(255, 255, 255, 0.6);" class="fixed-top">
+                <nav class="bg-danger border-bottom navbar navbar-expand-lg navbar-light pb-lg-0 pt-lg-0">
+                    <div class="bg-danger container"> <a class="fs-2 fw-bold navbar-brand pe-4 text-light"
+                            href="/index.html">FATOUR</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown-3" aria-controls="navbarNavDropdown-3"
+                            aria-expanded="false" aria-label="Toggle navigation"> <span
+                                class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="bg-danger collapse mb-auto me-auto ms-5 mt-auto navbar-collapse pe-5 ps-5 text-start"
+                            id="navbarNavDropdown-3">
+                            <ul class="navbar-nav ">
+                                <li class="nav-item">
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Listing 1: Grid Listing</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Listing 2: Vertical Listing</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Listing 3: Full width + Map on the
+                                                side</a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Details 1: Reponsive Style 1</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Details 2: Reponsive Style 2</a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Sample Page</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                </li>
+                                <li class="nav-item">
+                                </li>
+                                <li class="nav-item">
+                                </li>
+                            </ul>
+                            <a class="fw-bold m-lg-auto nav-link  p-lg-4 text-white"
+                                href="/fatour/home/dashboard.html">Home</a><a
+                                class="fw-bold m-lg-auto nav-link p-lg-4 text-white"
+                                href="/fatour/home/pedidos/compras.html">Meus pedidos</a>
+                            <ul class="align-items-lg-center ms-auto navbar-nav">
+                                <li class="nav-item">
+                                    <div class="fw-semibold nav-link px-lg-3 py-lg-4 text-white" id="logout"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z" />
+                                            <path fill-rule="evenodd"
+                                                d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+                                        </svg>Sair
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="viagem-horarios">
-                            <p class="horario">07:00</p>
-                            <i class="fas fa-bus"></i>
-                            <p class="horario">10:15</p>
-                        </div>
-                        <p class="viagem-duracao">3h 15m</p>
-                        <p class="viagem-aviso">Passagem para retirar no guichê</p>
-                        <p class="viagem-instrucoes">Você tem uma passagem para retirar no guichê: não esqueça de chegar
-                            cedo e apresentar seu documento com foto.</p>
                     </div>
+                </nav>
+            </header>
+            <div style="margin-top: 15vh;">
+                <div
+                    style="display: flex; justify-content: center; align-items: center; gap: 10px; text-align: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bag"
+                        viewBox="0 0 16 16" style="display: inline-block;">
+                        <path
+                            d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+                    </svg>
+                    <h2 style="margin: 0; line-height: 1;">Reservas</h2>
                 </div>
+                <div class="containerPedidos"></div>
+            </div>
 
-                <div class="modal-actions">
-                    <button class="reenviar-email">Reenviar dados do pedido por e-mail</button>
-                    <button class="alterar-viagem">Alterar viagem</button>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <div class="modal-header">
+                        <h2>ID do Pedido: 71GZ4OPZ</h2>
+                        <p>Data da compra: 13/10/2024</p>
+                    </div>
+                    <div class="modal-viagem">
+                        <h3>Viagem</h3>
+                        <div class="modal-status">
+                            <p>Status do pedido: </p>
+                            <p class="status-confirmado">Confirmado</p>
+                        </div>
+                        <div class="viagem-info">
+                            <div class="viagem-header">
+                                <p>Aparecida do Norte</p>
+                            </div>
+                            <div class="viagem-horarios">
+                                <p class="horario">23/11/2024, 23:00</p>
+                                <i class="fas fa-bus"></i>
+                                <p class="horario">24/11/2024, 15:00</p>
+                            </div>
+                            <p class="viagem-instrucoes">Você tem passagem para retirar: não esqueça de
+                                chegar
+                                cedo e apresentar seu documento com foto.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="viagem-passageiros">
+                        <hr>
+                        <div>
+                            <h3>Assentos reservados</h3>
+                        </div>
+                        <div class="assento-reservado">
+                            <p>Nome: Vitor do Nascimento Santana</p>
+                            <p>Assento: 15</p>
+                        </div>
+                        <div class="assento-reservado">
+                            <p>Nome: Maria Eduarda</p>
+                            <p>Assento: 16</p>
+                        </div>
+                    </div>
+                    <div class="modal-maps">
+                        <hr>
+                        <div>
+                            <h3>Pontos turísticos locais</h3>
+                        </div>
+                        <div id="map-container"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,7 +155,7 @@
 
             <div id="footer_items">
                 <span id="copyright">
-                    &FATOUR 2024
+                    FATOUR 2024
                 </span>
 
                 <div class="social-media-buttons">
@@ -125,12 +187,147 @@
         </footer>
     </div>
     <script src="script.js"></script>
-    
+    <script src="/fatour/home/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!--Script Control Access-->
+    <script>
+        var userId = localStorage.getItem('userId');
+
+        const controlAcess = document.getElementById('controlAcess');
+        if (userId === null || userId === undefined) {
+            controlAcess.style.display = 'none';
+        }
+    </script>
+
+    <!-- Script Logout -->
+    <script>
+        const btnLogout = document.getElementById('logout');
+        btnLogout.addEventListener('click', function () {
+            localStorage.removeItem('userId');
+            window.location.href = "/fatour/login.html";
+        });
+    </script>
+
+    <!-- Script Toast Fire -->
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        });
+    </script>
+
+    <!--Script principal-->
+    <script>
+        localStorage.removeItem("detalhesExcursoes");
+        localStorage.removeItem("dadosReserva");
+
+        const mapContainer = document.getElementById('map-container');
+
+        carregarExcursoesUsuario();
+        updateMap();
+
+        async function carregarExcursoesUsuario() {
+            try {
+                const response = await fetch(`http://127.0.0.1:8080/api/usuarios/${userId}/payments`);
+                const pedidos = await response.json();
+
+                const container = document.querySelector('.containerPedidos');
+                container.innerHTML = '';
+
+                pedidos.forEach(pedido => {
+                    const dataCompra = formatarData(pedido.date);
+                    const dataIda = formatarDataHora(pedido.going);
+                    const dataVolta = formatarDataHora(pedido.back);
+
+                    const card = document.createElement('div');
+                    card.classList.add('order');
+                    card.innerHTML = `
+                        <div class="order-header">
+                            <div class="dados">
+                                <p>Id do pedido:</p>
+                                <h3>${pedido.paymentId}</h3>
+                            </div>
+                            <div class="dados">
+                                <p>Data da Compra:</p>
+                                <h3>${dataCompra}</h3>
+                            </div>
+                        </div>
+                        <hr class="line">
+                        <div class="order-details">
+                            <div class="location">
+                                <p>${pedido.location}</p>
+                                <p>Ida: ${dataIda} - Volta: ${dataVolta}</p>
+                            </div>
+                            <p class="status">Confirmado</p>
+                        </div>
+                        <div class="button-containerPedidos">
+                            <button class="detalhes" onclick="verDetalhes(${pedido.paymentId})">VER DETALHES</button>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                Toast.fire({
+                    icon: "error",
+                    title: "Erro ao carregar os pedidos do usuário"
+                });
+            }
+        }
+
+        function formatarData(dataISO) {
+            const [ano, mes, dia] = dataISO.split('-');
+            const data = new Date(ano, mes - 1, dia); 
+            return data.toLocaleDateString('pt-BR');
+        }
+
+        function formatarDataHora(dataISO) {
+            const data = new Date(dataISO);
+            return data.toLocaleString('pt-BR');
+        }
+
+        async function verDetalhes(paymentId) {
+            try {
+                const response = await fetch(`http://127.0.0.1:8080/api/usuarios/${userId}/payments/${paymentId}/details`);
+                const pedidosDetalhados = await response.json();
+                console.log(pedidosDetalhados);
+            } catch (error) {
+                Toast.fire({
+                    icon: "error",
+                    title: "Erro ao carregar os pedidos do usuário"
+                });
+            }
+        }
+
+
+        function updateMap() {
+            let location = "Aparecida do Norte";
+            const iframeSrc = `https://www.google.com/maps/embed/v1/search?key=AIzaSyAonkmw24wKh2V_bwDysg2bkn_g2JXhz94&q=${encodeURIComponent(location + " Pontos turísticos")}`;
+            mapContainer.innerHTML = `<iframe width="760" height="450" frameborder="0" style="border:0;" src="${iframeSrc}" allowfullscreen></iframe>`;
+        }
+    </script>
+
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
         * {
             font-family: 'Poppins', sans-serif;
+        }
+
+        .order {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 15px 0;
+            background-color: #fff;
         }
 
         #logout:hover {
