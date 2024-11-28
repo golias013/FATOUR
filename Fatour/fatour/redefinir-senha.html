@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/fatour/css/styleResetSenha.css">
+    <link rel="icon" href="/fatour/images/favicon.ico" type="image/x-icon">
+    <title>Fatour</title>
+</head>
+
+<body>
+
+    <div class="main-reset-password">
+        <div class="left-reset-password">
+            <h1>Resolva sua senha<br> E venha viajar conosco</h1>
+            <object type="image/svg+xml" id="imagem" data="/fatour/images/busao.svg"></object>
+        </div>
+        <div class="right-reset-password">
+            <div class="card-reset-password">
+                <h1>REDEFINIR SENHA</h1>
+                <div class="resetpassword">
+                    <p>Insira seu endereço de e-mail e nós enviaremos instruções para redefinir sua senha.</p>
+                </div>
+                <div class="textfield">
+                    <label for="usuario">Email</label>
+                    <input id="email" type="text" name="usuario" placeholder="Email">
+                </div>
+                <button class="btn-reset-password" id="btn-reset-password">Enviar email</button>
+                <hr style="width: 100%">
+                <a href="/fatour/login.html" style="text-decoration: none; color: #D9D9D9; width: 100%;"><button class="btn-reset-password" id="btn-reset-password">Voltar</button></a>
+            </div>
+        </div>
+    </div>
+    <script src="/fatour/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- SCRIPT FORGOT PASSWORD -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            //Configuração para apresentar erros na tela para o usuario.
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: toast => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            });
+
+            const btnResetarSenha = document.getElementById('btn-reset-password');
+            btnResetarSenha.addEventListener('click', function () {
+                const email = document.getElementById('email').value;
+
+                let emailIsValid = validateEmail(email);
+
+                if (emailIsValid) {
+                    resetPassword(email);
+                } else {
+                    Toast.fire({
+                        icon: "error",
+                        title: "O email digitado não é válido!"
+                    });
+                }
+            });
+
+            function validateEmail(email) {
+                const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                let emailIsValid;
+
+                if (regex.test(email)) {
+                    emailIsValid = true;
+                    return emailIsValid;
+                } else {
+                    emailIsValid = false;
+                    return emailIsValid;
+                }
+            }
+
+            async function resetPassword(email) {
+                try {                    
+                    
+                    window.location.href = "/fatour/login.html"
+                    
+                    /*await fetch("localhost:8080/reset-passoword", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: email
+                        })
+                    }).then(response => response.json())
+                      .then(data => {
+                        console.log(data);
+                    }).catch(error => {
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'Error signing in.'
+                        });
+                    })*/
+
+                } catch (e) {
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error signing in.'
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

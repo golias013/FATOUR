@@ -1,0 +1,65 @@
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#destiny {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.destino {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    gap: 18px;
+    width: 25%;
+    padding: 20px;
+    background-color: var(--color-neutral-0);
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.destino-description {
+    color: #434343;
+    text-align: center;
+}
+
+.destino-rate i {
+    color: var(--color-primary-6);
+}
+
+.destino-price {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (max-width: 1170px) {
+    #destiny {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .destino {
+        width: calc(50% - 12px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .destino {
+        width: 100%;
+    }
+
+    #menu .section-subtitle {
+        text-align: center;
+    }
+} 
