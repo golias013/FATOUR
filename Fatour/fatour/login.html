@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/fatour/css/styleLogin.css">
+    <link rel="icon" href="/fatour/images/favicon.ico" type="image/x-icon">
+    <title>Fatour</title>
+</head>
+
+<body>
+
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Faça login <br>E venha viajar conosco</h1>
+            <!-- <img id="imagem" src="busao.svg" class="left-login-img" alt="Onibus Animação">-->
+            <object type="image/svg+xml" id="imagem" data="/fatour/images/busao.svg"></object>
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1>LOGIN</h1>
+                <div class="textfield">
+                    <label for="usuario">Email</label>
+                    <input id="email" type="text" name="usuario" placeholder="Email">
+                </div>
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input id="senha" type="password" name="senha" placeholder="Senha">
+                </div>
+                <div class="forgotpassword">
+                    <span>
+                        <strong>
+                            <a href="/fatour/redefinir-senha.html" class="text-primary">
+                                Esqueceu a senha?
+                            </a>
+                        </strong>
+                    </span>
+                </div>
+                <button class="btn-login" id="btn-login">Login</button>
+                <span class="spanNoAccount">
+                    Não tem uma conta?
+                    <strong><a href="/fatour/cadastro.html" class="text-primary">Cadastre-se</a></strong>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script src="/fatour/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- SCRIPT LOGIN -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: toast => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            });
+
+            const btnLogin = document.getElementById('btn-login');
+            btnLogin.addEventListener('click', function () {
+                const email = document.getElementById('email').value;
+                const senha = document.getElementById('senha').value;
+
+                let emailIsValid = validateEmail(email);
+
+                if (emailIsValid) {
+                    login(email, senha);
+                } else {
+                    Toast.fire({
+                        icon: "error",
+                        title: "O email digitado não é válido!"
+                    });
+                }
+            });
+
+            function validateEmail(email) {
+                const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                let emailIsValid;
+
+                if (regex.test(email)) {
+                    emailIsValid = true;
+                    return emailIsValid;
+                } else {
+                    emailIsValid = false;
+                    return emailIsValid;
+                }
+            }
+
+            async function login(email, senha) {
+                try {
+                    const response = await fetch("http://127.0.0.1:8080/api/usuarios/login", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            useremail: email,
+                            password: senha,
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        Toast.fire({
+                            icon: "error",
+                            title: data.msg
+                        });
+                    } else {
+                        let userId = data.id;   
+                        let role = data.role;         
+
+                        localStorage.setItem('userId', userId);
+                        localStorage.setItem('role', role);
+                        
+                        Toast.fire({
+                            icon: "success",
+                            title: data.msg
+                        });
+                        window.location.href = "/fatour/home/dashboard.html";
+                    }
+                } catch (error) {
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Erro ao realizar seu login.'
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

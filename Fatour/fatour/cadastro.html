@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/fatour/css/styleCadastro.css">
+    <link rel="icon" href="/fatour/images/favicon.ico" type="image/x-icon">
+    <title>Fatour</title>
+</head>
+
+<body>
+
+    <div class="main-cadastro">
+        <div class="left-cadastro">
+            <h1>Faça o seu cadastro <br>E venha viajar conosco</h1>
+            <!-- <img id="imagem" src="busao.svg" class="left-login-img" alt="Onibus Animação">-->
+            <object type="image/svg+xml" id="imagem" data="/fatour/images/busao.svg"></object>
+        </div>
+        <div class="right-cadastro">
+            <div class="card-cadastro">
+                <h1>CADASTRO</h1>
+                <div class="textfield">
+                    <label for="name">Nome</label>
+                    <input id="nome" type="text" name="name" placeholder="Nome">
+                </div>
+                <div class="textfield">
+                    <label for="usuario">Email</label>
+                    <input id="email" type="text" name="usuario" placeholder="Email">
+                </div>
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input id="senha" type="password" name="senha" placeholder="Senha">
+                </div>
+                <div class="textfield">
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                    <input id="confirmarSenha" type="password" name="confirmarSenha" placeholder="Repita sua senha">
+                </div>
+                <div id="senha-error" style="color: red; font-size: 14px; display: none;"></div>
+                <button class="btn-cadastro" id="btn-cadastro">Cadastro</button>
+                <div class="forgotpassword">
+                    <span>
+                        Já tem uma conta?
+                        <strong>
+                            <a href="/fatour/login.html" class="text-primary">
+                                Login
+                            </a>
+                        </strong>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/fatour/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- SCRIPT CADASTRO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Configuração para apresentar erros na tela para o usuário.
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: toast => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            });
+
+            const btnCadastro = document.getElementById('btn-cadastro');
+            const senha = document.getElementById('senha');
+            const confirmarSenha = document.getElementById('confirmarSenha');
+            const senhaError = document.getElementById('senha-error');
+
+            confirmarSenha.addEventListener('input', function () {
+                const password = senha.value;
+                const confirmPassword = confirmarSenha.value;
+
+                if (password !== confirmPassword) {
+                    senhaError.textContent = "As senhas digitadas não são iguais!";
+                    senhaError.style.display = 'block';
+                    btnCadastro.disabled = true;
+                    btnCadastro.style.opacity = '0.6';
+                } else {
+                    senhaError.style.display = 'none';
+                    btnCadastro.disabled = false;
+                    btnCadastro.style.opacity = '1';
+                }
+            });
+
+            btnCadastro.addEventListener('click', function () {
+                const name = document.getElementById('nome').value;
+                const email = document.getElementById('email').value;
+                const password = senha.value;
+                const confirmPassword = confirmarSenha.value;
+
+                let emailIsValid = validateEmail(email);
+                let passwordIsValid = validatePassword(password, confirmPassword);
+
+                if (emailIsValid && passwordIsValid) {
+                    register(name, email, password, confirmPassword);
+                } else if (!emailIsValid) {
+                    Toast.fire({
+                        icon: "error",
+                        title: "O email digitado não é válido!"
+                    });
+                } else if (!passwordIsValid) {
+                    Toast.fire({
+                        icon: "error",
+                        title: "As senhas digitadas não são iguais!"
+                    });
+                }
+            });
+
+            function validateEmail(email) {
+                const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return regex.test(email);
+            }
+
+            function validatePassword(password, confirmPassword) {
+                return password.trim() === confirmPassword.trim();
+            }
+
+            async function register(name, email, password, confirmPassword) {
+                try {
+                    const response = await fetch("http://127.0.0.1:8080/api/usuarios", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            username: name,
+                            useremail: email,
+                            password: password,
+                            role: "ROLE_CLIENTE"
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.status !== 201) {
+                        Toast.fire({
+                            icon: "error",
+                            title: 'Erro ao realizar seu cadastro.'
+                        });
+                    } else {
+                        let userId = data.id;
+                        localStorage.setItem('userId', userId);
+                        window.location.href = "/fatour/home/dashboard.html";
+                    }
+
+                } catch (e) {
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Erro ao realizar seu cadastro.'
+                    });
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>
