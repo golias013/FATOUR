@@ -20,7 +20,7 @@
         <header style="background-color: rgba(255, 255, 255, 0.6);" class="fixed-top">
             <nav class="bg-danger border-bottom navbar navbar-expand-lg navbar-light pb-lg-0 pt-lg-0">
                 <div class="bg-danger container"> <a class="fs-2 fw-bold navbar-brand pe-4 text-light"
-                        href="/fatour/login.html">FATOUR</a>
+                        href="/fatour/home/dashboard.html">FATOUR</a>
                     <ul class="align-items-lg-center ms-auto navbar-nav">
                         <li class="nav-item">
                             <div class="fw-semibold nav-link px-lg-3 py-lg-4 text-white" id="logout"><svg
@@ -77,11 +77,24 @@
     <script src="/fatour/home/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!--Script Gestão de acesso-->
+    <script>
+        let role_user = localStorage.getItem('role');
+        const controlAcess = document.getElementById('controlAcess');
+
+        if (role_user != "ROLE_CLIENTE") {
+            controlAcess.style.display = 'block';
+        } else {
+            controlAcess.style.display = 'none';
+        }
+    </script>
+
     <!-- Script Logout -->
     <script>
         const btnLogout = document.getElementById('logout');
         btnLogout.addEventListener('click', function () {
             localStorage.removeItem('userId');
+            localStorage.removeItem('role');
             window.location.href = "/fatour/login.html";
         });
     </script>
@@ -107,7 +120,7 @@
 
         async function carregarExcursões() {
             try {
-                const response = await fetch('http://127.0.0.1:8080/api/excursions');
+                const response = await fetch('https://back-end-fatour-cpavdtcrhrdwe8ez.brazilsouth-01.azurewebsites.net/api/excursions');
                 const excursões = await response.json();
 
                 const tabelaBody = document.querySelector('table tbody');

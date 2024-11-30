@@ -65,8 +65,12 @@
                             <li class="nav-item">
                             </li>
                         </ul>
-                        <a class="fw-bold m-lg-auto nav-link  p-lg-4 text-white" href="/fatour/home/dashboard.html">Home</a><a
-                            class="fw-bold m-lg-auto nav-link p-lg-4 text-white" href="/fatour/home/pedidos/compras.html">Meus pedidos</a>
+                        <a class="fw-bold m-lg-auto nav-link  p-lg-4 text-white"
+                            href="/fatour/home/dashboard.html">Home</a><a
+                            class="fw-bold m-lg-auto nav-link p-lg-4 text-white"
+                            href="/fatour/home/pedidos/compras.html">Meus pedidos</a><a
+                            class="fw-bold m-lg-auto nav-link p-lg-4 text-white" id="adminPainel"
+                            href="/fatour/admin/excursoes.html">Painel</a>
                         <ul class="align-items-lg-center ms-auto navbar-nav">
                             <li class="nav-item">
                                 <div class="fw-semibold nav-link px-lg-3 py-lg-4 text-white" id="logout"><svg
@@ -227,6 +231,19 @@
             </footer>
         </main>
     </div>
+
+    <iframe id="chatBotIframe"
+        src="https://dev-relpz.dynapp.com.br/panel#/embed/bot/suporte_fatour/chat?userCanLogin=true&expandableButtonBackgroundColor=%23161717&expandableButtonIconColor=%23ffffff&chatbotGreetingMessage=Est%C3%A1%20com%20d%C3%BAvidas%20ou%20problemas%3F%20Mande%20aqui%20e%20eu%20te%20ajudo!%20%F0%9F%92%AC&expandableButtonBorderRadius=6px&expandableButtonHeight=40px&expandableButtonWidth=fit-content&expandableButtonFontSize=16px&expandableButtonPadding=0px%2016px"
+        frameborder="0" scrolling="no" allowtransparency="true"
+        style="position: fixed;visibility: hidden;transition: height 0.3s ease-in-out;z-index: 1030;">
+    </iframe>
+
+
+    <!-- Script Relpz -->
+    <script src="https://dev-relpz.dynapp.com.br/src/assets/js/embed-chat.js"></script>
+    <script>initializeChat()</script>
+
+
     <script src="assets/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -242,11 +259,24 @@
         }
     </script>
 
+    <!--Script Gestão de acesso-->
+    <script>
+        let role_user = localStorage.getItem('role');
+        const adminPainel = document.getElementById('adminPainel');
+
+        if (role_user != "ROLE_CLIENTE") {
+            adminPainel.style.display = 'block';
+        } else {
+            adminPainel.style.display = 'none';
+        }
+    </script>
+
     <!-- Script Logout -->
     <script>
         const btnLogout = document.getElementById('logout');
         btnLogout.addEventListener('click', function () {
             localStorage.removeItem('userId');
+            localStorage.removeItem('role');
             window.location.href = "/fatour/login.html";
         });
     </script>
@@ -270,14 +300,14 @@
     <script>
         localStorage.removeItem("detalhesExcursoes");
         localStorage.removeItem("dadosReserva");
-        
+
         let excursoesOriginais = [];
 
         window.onload = carregarExcursões;
 
         async function carregarExcursões() {
             try {
-                const response = await fetch('http://127.0.0.1:8080/api/excursions');
+                const response = await fetch('https://back-end-fatour-cpavdtcrhrdwe8ez.brazilsouth-01.azurewebsites.net/api/excursions');
                 const excursoes = await response.json();
                 excursoesOriginais = excursoes;
                 populateExcursionCards(excursoes);
