@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fatour</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/fatour/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/fatour/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/fatour/home/blocks.css">
+    <!-- Custom styles for this template -->
+    <link href="/fatour/admin/excursoes/novaExcursao.css" rel="stylesheet">
+    <script> (function () { try { if (!document.documentElement.hasAttribute('data-pg-ia-disabled')) { window.pgia_small_mq = typeof pgia_small_mq == 'string' ? pgia_small_mq : '(max-width:767px)'; window.pgia_large_mq = typeof pgia_large_mq == 'string' ? pgia_large_mq : '(min-width:768px)'; var style = document.createElement('style'); var pgcss = 'html:not(.pg-ia-no-preview) [data-pg-ia-hide=""] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show=""] {opacity:1;visibility:visible;display:block;}'; if (document.documentElement.hasAttribute('data-pg-id') && document.documentElement.hasAttribute('data-pg-mobile')) { pgia_small_mq = '(min-width:0)'; pgia_large_mq = '(min-width:99999px)' } pgcss += '@media ' + pgia_small_mq + '{ html:not(.pg-ia-no-preview) [data-pg-ia-hide="mobile"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="mobile"] {opacity:1;visibility:visible;display:block;}}'; pgcss += '@media ' + pgia_large_mq + '{html:not(.pg-ia-no-preview) [data-pg-ia-hide="desktop"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="desktop"] {opacity:1;visibility:visible;display:block;}}'; style.innerHTML = pgcss; document.querySelector('head').appendChild(style); } } catch (e) { console && console.log(e); } })()</script>
+</head>
+
+<body class="text-black-50">
+    <div id="controlAcess">
+        <header style="background-color: rgba(255, 255, 255, 0.6);" class="fixed-top">
+            <nav class="bg-danger border-bottom navbar navbar-expand-lg navbar-light pb-lg-0 pt-lg-0">
+                <div class="bg-danger container"> <a class="fs-2 fw-bold navbar-brand pe-4 text-light"
+                        href="/fatour/login.html">FATOUR</a>
+                    <ul class="align-items-lg-center ms-auto navbar-nav">
+                        <li class="nav-item">
+                            <div class="fw-semibold nav-link px-lg-3 py-lg-4 text-white" id="logout"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z" />
+                                    <path fill-rule="evenodd"
+                                        d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+                                </svg>Sair
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="pb-5 pt-5 mt-5">
+                <div >
+                    <div style="display: flex; justify-content: space-around; margin: 30px; gap: 20%;"> 
+                        <a href="/fatour/admin/excursoes.html" style="text-decoration: none;"><button type="button" class="btn btn-secondary"
+                            style="display: flex; align-items: center; justify-content: space-between; gap: 5px; margin-right: 20px; font-size: 14px; margin: 0;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8">
+                                </path>
+                            </svg>
+                            Voltar
+                        </button></a>
+                    <h2 style="margin: 0;">Nova excursão</h2>
+                    <div></div>
+                    </div>
+                </div>
+
+                <div id="divForm">
+                    <form id="form">
+                        <label for="local">Local da excursão:</label>
+                        <input type="text" id="local" name="local" required>
+
+                        <label for="descricao">Descrição da excursão:</label>
+                        <textarea id="descricao" name="descricao" required></textarea>
+
+                        <label for="imagem">Adicionar imagem (PNG ou JPEG):</label>
+                        <input type="file" id="imagem" name="imagem" accept=".png, .jpg, .jpeg" required>
+
+                        <label>Data e Hora de Ida:</label>
+                        <div class="date-time-group">
+                            <input type="date" id="dataIda" name="dataIda" required>
+                            <input type="time" id="horaIda" name="horaIda" required>
+                        </div>
+
+                        <label>Data e Hora de Volta:</label>
+                        <div class="date-time-group">
+                            <input type="date" id="dataVolta" name="dataVolta" required>
+                            <input type="time" id="horaVolta" name="horaVolta" required>
+                        </div>
+
+                        <label for="preco">Preço:</label>
+                        <input type="number" id="preco" name="preco" min="0" required>
+
+                        <label for="numeroParticipantes">Número de participantes (1 a 50):</label>
+                        <input type="number" id="numeroParticipantes" name="numeroParticipantes" min="1" max="50"
+                            required>
+
+                        <button type="submit">Criar Excursão</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/fatour/home/assets/js/popper.min.js"></script>
+    <script src="/fatour/home/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Script Logout -->
+    <script>
+        const btnLogout = document.getElementById('logout');
+        btnLogout.addEventListener('click', function () {
+            localStorage.removeItem('userId');
+            window.location.href = "/fatour/login.html";
+        });
+    </script>
+
+    <!-- Script Nova Excursão -->
+    <script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: toast => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        });
+
+        document.getElementById('form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const local = document.getElementById('local').value;
+            const descricao = document.getElementById('descricao').value;
+            const imagem = document.getElementById('imagem').files[0];
+            const dataIda = document.getElementById('dataIda').value + "T" + document.getElementById('horaIda').value + ":00";
+            const dataVolta = document.getElementById('dataVolta').value + "T" + document.getElementById('horaVolta').value + ":00";
+            const preco = document.getElementById('preco').value;
+            const quantidadeAssentos = document.getElementById('numeroParticipantes').value;
+
+            let imagemBase64 = '';
+            if (imagem) {
+                try {
+                    imagemBase64 = await obterBase64(imagem);
+                } catch (error) {
+                    console.error('Erro ao converter a imagem:', error);
+                    return;
+                }
+            }
+
+            insertExcursao(local, descricao, imagemBase64, dataIda, dataVolta, preco, quantidadeAssentos);
+        });
+
+        function convertImageToBase64(imagemFile) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    resolve(reader.result);
+                };
+                reader.onerror = (error) => {
+                    reject(error);
+                };
+                reader.readAsDataURL(imagemFile);
+            });
+        }
+
+        async function obterBase64(imagemFile) {
+            try {
+                const imagemBase64 = await convertImageToBase64(imagemFile);
+                return imagemBase64.split(',')[1];
+            } catch (error) {
+                console.error('Erro ao converter a imagem:', error);
+                return null;
+            }
+        }
+
+        async function insertExcursao(local, descricao, foto, dataIda, dataVolta, preco, quantidadeAssentos) {
+            try {
+                const response = await fetch("http://127.0.0.1:8080/api/excursions", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        location: local,
+                        description: descricao,
+                        image: foto,
+                        going: dataIda,
+                        back: dataVolta,
+                        price: preco,
+                        numberOfSeats: quantidadeAssentos,
+                        quantitySold: 0
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    Toast.fire({
+                        icon: "error",
+                        title: "Erro ao inserir uma nova excursão"
+                    });
+                } else {
+                    window.location.href = "/fatour/admin/excursoes.html";
+                }
+            } catch (error) {
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Erro ao inserir uma nova excursão'
+                });
+            }
+        }
+    </script>
+
+    <style>
+        #logout:hover {
+            cursor: pointer;
+        }
+
+        #controlAcess {
+            background-color: white;
+            padding-bottom: 30px;
+        }
+    </style>
+</body>
+
+</html>
