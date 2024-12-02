@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="/fatour/css/styleResetSenha.css">
     <link rel="icon" href="/fatour/images/favicon.ico" type="image/x-icon">
     <title>Fatour</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
@@ -29,7 +34,8 @@
                 </div>
                 <button class="btn-reset-password" id="btn-reset-password">Enviar email</button>
                 <hr style="width: 100%">
-                <a href="/fatour/login.html" style="text-decoration: none; color: #D9D9D9; width: 100%;"><button class="btn-reset-password" id="btn-reset-password">Voltar</button></a>
+                <a href="/fatour/login.html" style="text-decoration: none; color: #D9D9D9; width: 100%;"><button
+                        class="btn-reset-password" id="btn-reset-password">Voltar</button></a>
             </div>
         </div>
     </div>
@@ -83,10 +89,10 @@
             }
 
             async function resetPassword(email) {
-                try {                    
-                    
+                try {
+
                     window.location.href = "/fatour/login.html"
-                    
+
                     /*await fetch("localhost:8080/reset-passoword", {
                         method: 'POST',
                         headers: {
@@ -115,4 +121,5 @@
         });
     </script>
 </body>
+
 </html>
