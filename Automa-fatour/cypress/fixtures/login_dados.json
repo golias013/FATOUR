@@ -1,0 +1,11 @@
+{
+    "dados_login": [
+        {
+            "Nome_cenario": "Login + Validação de funcionalidades do sistema",
+            "nome": "Victor Hugo",
+            "email": "bruno.s@hotmail.com",
+            "senha": "fatour@viagens2024",
+            "excursão": "bolsa"
+        }
+    ]
+}
