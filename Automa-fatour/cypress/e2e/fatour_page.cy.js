@@ -1,5 +1,6 @@
-import { dados } from '../fixtures/fatour_dados.json'
+import { dados_cadastro } from '../fixtures/cadastro_dados.json'
 import { dados_admin } from '../fixtures/admin_dados.json'
+import { dados_login } from '../fixtures/login_dados.json'
 import FatourPage from '../pages/fatourPage'
 import CadastroPage from '../pages/cadastroPage'
 import LoginPage from '../pages/loginPage'
@@ -13,40 +14,44 @@ import AdminPage from '../pages/adminPage'
 //       LoginPage.preencherEmail().type(cenario.email_admin)
 //       LoginPage.preencherSenha().type(cenario.senha_admin,{log:false})
 //       LoginPage.login()
+//       AdminPage.acessarPainel()
+//       AdminPage.criarExcursão()
+//       AdminPage.validarExcursão()
+//       AdminPage.logout()
 //     })
 //   })
 // })
 // describe('Testes Funcional - Cadastro de Usuário', () => {
-//   dados.forEach((cenario, k) => {
+//   dados_cadastro.forEach((cenario, k) => {
 //     it(`${cenario.Nome_cenario}`, () => {
-//       FatourPage.site()
-//       FatourPage.landingPageAcesso().click()
-//       FatourPage.registrar().click()
-//       FatourPage.preencherNome().type(cenario.nome)
-//       FatourPage.preencherEmail().type(cenario.email)
-//       FatourPage.preencherSenha().type(cenario.senha)
-//       FatourPage.preencherConfirmacaoSenha().type(cenario.senha)
-//       FatourPage.cadastrar().click()
-//       FatourPage.validarCadastro()
+//       LoginPage.acessarSite()
+//       CadastroPage.cadastro()
+//       CadastroPage.preencherNome().type(cenario.novo_nome)
+//       CadastroPage.preencherEmail().type(cenario.novo_email)
+//       CadastroPage.preencherSenha().type(cenario.nova_senha)
+//       CadastroPage.preencherConfirmacaoSenha().type(cenario.nova_senha)
+//       CadastroPage.cadastrar()
+//       CadastroPage.validarCadastro()
 //     })
 //   })
 // })
 
-// describe('Testes Funcional - Login + Reserva de Excursão', () => {
-//   dados.forEach((cenario, k) => {
-//     it(`${cenario.Nome_cenario}`, () => {
-//       LoginPage.acessarSite()
-//       LoginPage.preencherEmail().type(cenario.email)
-//       LoginPage.preencherSenha().type(cenario.senha,{log:false})
-//       LoginPage.login()
-//       FatourPage.preencherPesquisa().type(cenario.excursão)
-//       FatourPage.pesquisarExcursão()
-//       FatourPage.reservarExcursão()
-//       FatourPage.preencherPassageiro1()
-//       FatourPage.preencherPassageiro2()
-//       FatourPage.seguirParaPagamento()
-//       FatourPage.preencherDadosCartão()
-//       FatourPage.validarCompra()  
-//   })
-// })
-// })
+describe('Testes Funcional - Login + Reserva de Excursão', () => {
+  dados_login.forEach((cenario, k) => {
+    it(`${cenario.Nome_cenario}`, () => {
+      LoginPage.acessarSite()
+      LoginPage.preencherEmail().type(cenario.email)
+      LoginPage.preencherSenha().type(cenario.senha,{log:false})
+      LoginPage.login()
+      cy.window().should('have.property', '$');
+      FatourPage.preencherPesquisa().type(cenario.excursão)
+      FatourPage.pesquisarExcursão()
+      // FatourPage.reservarExcursão()
+      // FatourPage.preencherPassageiro1()
+      // FatourPage.preencherPassageiro2()
+      // FatourPage.seguirParaPagamento()
+      // FatourPage.preencherDadosCartão()
+      // FatourPage.validarCompra()  
+  })
+})
+})

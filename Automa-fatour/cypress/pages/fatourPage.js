@@ -41,14 +41,14 @@ class FatourPage {
         cy.get(el.numeroCartão).type("5477 0109 5726 1326");
         cy.get(el.validadeCartão).type("09/25");
         cy.get(el.cvvCartão).type("157");
-        cy.get(el.botãoComprar).click()
-        cy.get(el.historicoPedidos).click()
+        cy.get(el.botãoComprar).click();
+        cy.get(el.historicoPedidos).click();
     }
     validarCompra() {
-        cy.get(el.historicoPedidos).click()
-        cy.get(el.detalhesExcursão).click()
-        cy.get(el.fecharJanelaDetalhes).click()
-        cy.get(el.logout).click()
+        cy.get(el.historicoPedidos).click();
+        cy.get(el.detalhesExcursão).click();
+        cy.get(el.fecharJanelaDetalhes).click();
+        cy.get(el.logout).click();
     }
 
 }

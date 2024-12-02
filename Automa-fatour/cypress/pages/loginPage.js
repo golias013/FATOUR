@@ -10,7 +10,7 @@ class LoginPage {
         cy.get(el.botãoCadastrar).click();
     }
     login() {
-        cy.get(el.botãoLogin).click()
+        cy.get(el.botãoLogin).click();
     }
     preencherEmail() {
         return cy.get(el.campoEmail)
@@ -19,10 +19,10 @@ class LoginPage {
         return cy.get(el.campoSenha)
     }
     esqueceuSenha() {
-        cy.get(el.esqueciMinhaSenha).click()
+        cy.get(el.esqueciMinhaSenha).click();
     }
     validarCadastro() {
-        return cy.get(el.logoPaginaPrincipal)
+        cy.contains(el.logoPaginaPrincipal)
     }
 }
 

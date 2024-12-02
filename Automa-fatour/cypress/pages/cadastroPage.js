@@ -4,7 +4,11 @@ const el = require('./elementos').ELEMENTS
 class CadastroPage {
     cadastro() {
        cy.get(el.botãoRegistrarse).click()
-    }
+    }    
+    preencherNome() {
+        return cy.get(el.campoNome)
+     }
+ 
     preencherEmail() {
        return cy.get(el.campoEmail)
     }
@@ -18,7 +22,7 @@ class CadastroPage {
        cy.get(el.botãoCadastrar).click()
     }
     validarCadastro() {
-       return cy.get(el.logoPaginaPrincipal)
-    }
+      cy.contains(el.logoPaginaPrincipal)
+   }
 }
 export default new CadastroPage();
