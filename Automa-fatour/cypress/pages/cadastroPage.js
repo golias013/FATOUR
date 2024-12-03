@@ -8,7 +8,6 @@ class CadastroPage {
     preencherNome() {
         return cy.get(el.campoNome)
      }
- 
     preencherEmail() {
        return cy.get(el.campoEmail)
     }
@@ -23,6 +22,7 @@ class CadastroPage {
     }
     validarCadastro() {
       cy.contains(el.logoPaginaPrincipal)
+      cy.get(el.logout).click();
    }
 }
 export default new CadastroPage();

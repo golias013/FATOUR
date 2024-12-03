@@ -31,12 +31,11 @@ class FatourPage {
         cy.get(el.cpfPassageiro13).type("014.177.420-70");
     }
     seguirParaPagamento() {
-        cy.get(el.botãoComprar).click();
+        cy.get(el.botãoReservaAssento).click();
     }
     preencherDadosCartão() {
         cy.get(el.botãoCredito).click();
-        cy.get(el.parcelasLista).click();
-        cy.contains('R$50,00').click();
+        cy.contains('R$100,00');
         cy.get(el.nomeTitularCartão).type("Golias Soares");
         cy.get(el.numeroCartão).type("5477 0109 5726 1326");
         cy.get(el.validadeCartão).type("09/25");
@@ -45,7 +44,6 @@ class FatourPage {
         cy.get(el.historicoPedidos).click();
     }
     validarCompra() {
-        cy.get(el.historicoPedidos).click();
         cy.get(el.detalhesExcursão).click();
         cy.get(el.fecharJanelaDetalhes).click();
         cy.get(el.logout).click();

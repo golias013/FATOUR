@@ -2,22 +2,37 @@
 
 const el = require('./elementos').ELEMENTS
 
+const formatDate = (date) => {
+   const day = date.slice(0, 2); // Primeiro 2 dígitos
+   const month = date.slice(2, 4); // Próximos 2 dígitos
+   const year = date.slice(4); // Últimos 4 dígitos
+   return `${year}-${month}-${day}`;
+ };
+ const formatTime = (time) => {
+   const hours = time.slice(0, 2); // Primeiro 2 dígitos
+   const minutes = time.slice(2, 4); // Últimos 2 dígitos
+   return `${hours}:${minutes}`;
+ };
+
+ const horaIda = formatTime('0800'); 
+ const horaVolta = formatTime('1800'); 
+ const dateIda = formatDate('10122024');
+ const dateVolta = formatDate('15122024');
+ 
+ 
 class AdminPage {
     acessarPainel() {
         cy.get(el.painelAdmin).click();
         cy.get(el.addExcursão).click();
      }
-     clicarIA(){
-        cy.get(el.robo).click()
-     }
      criarExcursão(){
         cy.get(el.localExcursão).type('Acqua Mundo');
         cy.get(el.descExcursão).type('Maior aquário da américa Latina');
-        cy.get(el.dataIda).type('10/12/2024');
-        cy.get(el.dataVolta).type('10/12/2024');
-        cy.get(el.imgExcursão).click().type('acqua-mundo.jpg');
-        cy.get(el.horaIda).type('08:00');
-        cy.get(el.horaVolta).type('18:00');
+        cy.get('input[type="file"]').selectFile('cypress/fixtures/acqua-mundo.jpg');
+        cy.get(el.dataIda).type(dateIda);
+        cy.get(el.dataVolta).type(dateVolta);
+        cy.get(el.horaIda).type(horaIda);
+        cy.get(el.horaVolta).type(horaVolta);
         cy.get(el.valorExcursão).type('25');
         cy.get(el.limitePessoas).type('40');
         cy.get(el.botãoCriarExcursão).click();

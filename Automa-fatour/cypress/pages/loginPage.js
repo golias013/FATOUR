@@ -23,6 +23,7 @@ class LoginPage {
     }
     validarCadastro() {
         cy.contains(el.logoPaginaPrincipal)
+        cy.get(el.logout).click();
     }
 }
 
